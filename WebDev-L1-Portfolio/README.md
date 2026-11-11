@@ -32,3 +32,7 @@ Semantic landmarks, a skip link, visible keyboard focus, fluid typography, respo
 The name, Jaffna location, qualifications, experience, and public contact address were adapted from the original GitHub portfolio. Verify that these details are still current before publication. The portrait remains a decorative initial, not a person's photo. The GitHub URL uses the repository owner supplied in the brief. No qualifications, employers, proficiency percentages, or experience have been invented. Skills describe technologies used by these projects.
 
 Both linked internship project cards point to sibling projects, including EduSpark. A new Education & Training section summarizes available existing portfolio details. The source portfolio repository has been left intact, except its root index now publishes its richer pre-existing HTML version. Smooth navigation uses CSS and respects reduced-motion preferences.
+
+## November premium visual refresh
+
+The internship portfolio uses a deep maroon, rose, and champagne-gold palette drawn from the user's original GitHub portfolio. The source portfolio is distinct from this internship folder. Refresh both responsive screenshots after verifying the new styling in-browser.
