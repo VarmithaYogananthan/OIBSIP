@@ -15,7 +15,7 @@ HTML5 + CSS3 only. Browser-native Grid, Flexbox, fluid sizing, media queries, CS
 - Deep maroon/burgundy sections balanced with warm cream surfaces, rose details, and champagne gold highlights.
 - Home, About Me, Skills, Featured Projects, Education, Training & Experience, Contact, and footer.
 - Original portrait copied byte-for-byte from the provided portfolio; no retouching or replacement imagery.
-- Two working internship project demos, plus eight additional project cards: Spendly, Green Leaf Grand, CRM & Automated Marketing, MovieReviewAPI, Taskly / TaskFlow, Banking Application, HealthBridge, and SYNTIVO. Spendly and Banking Application link to public repositories; the rest are described without invented live demo links.
+- Two working internship project demos, plus nine additional project cards: Spendly, Green Leaf Grand, CRM & Automated Marketing, MovieReviewAPI, Taskly / TaskFlow, Banking Application, HealthBridge, REQVIORA (formerly SYNTIVO), and Personal Portfolio Website. Spendly and Banking Application link to public repositories; the rest are described without invented live demo links.
 - Verified email (`mailto:yvarmitha@gmail.com`), GitHub profile, source repository links, visible navigation, and Back to Top.
 - Education and training use source-listed statuses; no new qualifications, employers, dates, grades, or internship completion claims.
 
@@ -82,3 +82,6 @@ The source contains an embedded JPEG portrait. `assets/varmitha-portrait.jpg` is
 ## Additional project cards (11 November 2026)
 
 The project inventory now includes verified public source links for Spendly and a C# Banking Application alongside five documented projects from the original portfolio and two ongoing concepts. HealthBridge and SYNTIVO are clearly labelled as work in development or prototype concepts; no production deployment is claimed. Updated card layout is responsive. The prior browser test/screenshot report predates this content change: rerun browser checks and refresh portfolio screenshots before final submission.
+
+### Project inventory update
+The previous SYNTIVO project is now described as REQVIORA (formerly SYNTIVO) to reflect the user's newer naming, with no claim of production completion. The original standalone personal portfolio repository is also displayed as a separate project. The section now contains two featured internship projects and nine additional cards (11 total). The expanded project inventory is not a substitute for the user's confirmation that all other private/local projects are included. Re-run screenshot/browser checks after this content update.
