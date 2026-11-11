@@ -54,3 +54,14 @@ form.addEventListener("reset", () => {
   clearResults();
   input.focus();
 });
+
+
+// Quick examples use the same verified calculation path as manual input.
+document.querySelectorAll(".sample-row button").forEach((button) => {
+  button.addEventListener("click", () => {
+    unit.value = button.dataset.unit;
+    input.value = button.dataset.value;
+    document.querySelector("#input-symbol").textContent = SYMBOLS[unit.value];
+    form.requestSubmit();
+  });
+});
