@@ -20,7 +20,7 @@ Keep the three task folders next to one another so portfolio project links resol
 1. Open the project in Chrome, Firefox, or Edge.
 2. Capture a desktop view at 1440 × 1000 and a mobile view at 390 × 844 using browser developer tools and its screenshot command.
 3. For a full-page screenshot, use the browser’s “Capture full size screenshot” option.
-4. Save captures in this folder’s `screenshots/` directory as `desktop.png` and `mobile.png`. Existing captures predate the latest premium visual redesign; capture new screenshots before submission.
+4. Save captures in this folder’s `screenshots/` directory as `desktop.png` and `mobile.png`. Existing captures predate the latest premium visual redesign and personal-detail changes; capture new screenshots before submission.
 5. Check navigation, focus visibility, text wrapping, and horizontal overflow before recording your internship demonstration.
 
 ## Accessibility and responsive design
@@ -29,6 +29,6 @@ Semantic landmarks, a skip link, visible keyboard focus, fluid typography, respo
 
 ## Personalize before publication
 
-The verified GitHub account name and Jaffna location now appear in the portfolio. Verify the personal introduction, replace the contact email placeholder, and replace the generic LinkedIn homepage with your actual profile URL. The portrait is a decorative initial, not a real photo. The GitHub URL uses the repository owner supplied in the brief. No qualifications, employers, proficiency percentages, or experience have been invented. Skills describe technologies used by these projects.
+The name, Jaffna location, qualifications, experience, and public contact address were adapted from the original GitHub portfolio. Verify that these details are still current before publication. The portrait remains a decorative initial, not a person's photo. The GitHub URL uses the repository owner supplied in the brief. No qualifications, employers, proficiency percentages, or experience have been invented. Skills describe technologies used by these projects.
 
-Both project cards link to sibling projects, including the renamed EduSpark Landing Page. Smooth navigation uses CSS and respects reduced-motion preferences.
+Both linked internship project cards point to sibling projects, including EduSpark. A new Education & Training section summarizes available existing portfolio details. The source portfolio repository has been left intact, except its root index now publishes its richer pre-existing HTML version. Smooth navigation uses CSS and respects reduced-motion preferences.
