@@ -1,4 +1,4 @@
-# Thermo — Temperature Converter
+# TempConvert — Temperature Converter
 
 Oasis Infobyte · Web Development & Designing · Level 1
 
@@ -54,3 +54,9 @@ No intermediate rounding. Display precision is up to six decimals, or six decima
 ## Optional automated calculation checks
 
 From the repository root, with Node.js 18+: `node --test tests/converter.test.cjs`. The test uses Node’s built-in runner with no packages to install. `converter.js` contains pure calculation/formatting functions; `script.js` manages the form and accessible results.
+
+## Premium UI and quick examples
+
+The converter now uses a responsive climate-glass colour system. Quick example buttons set verified Celsius/Fahrenheit/Kelvin values and submit via the existing validated conversion handler. Converted results are displayed only after the user presses Convert or selects an example; Reset clears the form and results. All calculations remain in `converter.js`.
+
+The JavaScript behavior and styles were updated after the original automated browser run. Rerun tests and capture fresh desktop/mobile screenshots before submitting.
