@@ -16,6 +16,11 @@ HTML5 + CSS3 + Vanilla JavaScript. Browser-native Grid, Flexbox, fluid sizing, m
 - Frosted-glass input panel, clear Celsius/Fahrenheit/Kelvin selector, glowing Convert action, Reset, and three labelled result cards.
 - Full-number parsing, finite-input validation, absolute-zero limits, clear errors, and rejection of conversion overflow.
 - Enter submits; Reset clears input/errors/results and restores Celsius; editing input or changing scale clears stale results.
+- Optional live preview (off by default to avoid changing the original submit/reset workflow); invalid input and below-absolute-zero validation apply to live mode too.
+- A focused result selector with Swap Units, Celsius/Fahrenheit/Kelvin result highlighting, three per-unit copy actions and Copy All.
+- Display precision choice (2, 4 or 6 maximum fractional digits) with full-precision calculation preserved.
+- Local last-12 conversion history, clickable Use Again actions, clear history and CSV export. Browser storage may be unavailable under restricted/file origins; in that case the history remains session-only.
+- Accessible dark/light appearance toggle, saved when browser storage is available, plus an illustrative temperature-range indicator.
 - Five functional quick examples: 0 °C, 25 °C, 100 °C, 98.6 °F, and 0 K. Each uses the same form and calculation path as manual input.
 - Accessible live results, input labels, error focus, reference values, and expandable formulas.
 
@@ -87,3 +92,7 @@ No intermediate rounding. Lower bounds: −273.15 °C, −459.67 °F, and 0 K. S
 ```sh
 node --test tests/converter.test.cjs
 ```
+
+## V2 verification required
+
+The earlier Chromium screenshots and `TESTING.md` results predate these V2 interactive controls. The new `tests/browser-check.py` contains checks for live mode, swap, precision, saved history, theme persistence, clipboard and CSV export. **These new browser checks have not been run in the connected GitHub editing environment.** Run them against a local server, review desktop/mobile layouts and regenerate both real screenshots prior to internship submission. Copy uses browser Clipboard APIs with a legacy fallback; restricted browsers may deny clipboard permission. CSV export needs normal browser download support.
