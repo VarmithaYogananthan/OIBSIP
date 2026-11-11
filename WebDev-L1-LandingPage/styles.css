@@ -390,3 +390,29 @@ h1 > span:not(.title-dot) { color: var(--blue); }
   .course-art .art-caption { left: 15px; bottom: 14px; font-size: .4rem; }
 }
 @media (max-width:600px) { .learning-scene { padding-bottom: 60px; } }
+
+/* EduSpark premium desktop direction: gradient surfaces, luminous hero and polished cards. */
+:root{--blue:#3154f4;--purple:#823af3;--navy:#101c42;--light:#f7f8ff;--border:#e3e8fb}
+body{background:#fff;color:var(--navy);font-family:Inter,"Segoe UI",Arial,sans-serif}
+.site-header{background:#ffffffed;backdrop-filter:blur(18px);box-shadow:0 8px 35px #273c8510}
+.logo-symbol{background:linear-gradient(135deg,var(--blue),var(--purple));box-shadow:0 6px 20px #633ae340}
+.logo-blue,h1>span:not(.title-dot){color:#673ae9}
+.button{background:linear-gradient(110deg,#244ff4,#8435ed);border-radius:12px;box-shadow:0 9px 24px #5935d735}
+.button:hover{background:linear-gradient(110deg,#173de0,#6926cf);box-shadow:0 14px 32px #5935d745}
+.button-secondary{background:#fff;color:#5132d8;border:1px solid #8b6cf0;box-shadow:none}
+.button-secondary:hover{background:#f6f2ff}
+.hero{background:radial-gradient(ellipse at 72% 22%,#c5baff9c,transparent 48%),radial-gradient(ellipse at 0 75%,#dce9ff,transparent 47%),linear-gradient(120deg,#fbfdff,#f4f1ff 65%,#eef3ff)}
+.hero h1{font-size:clamp(3rem,5vw,4.6rem)}
+.pill{background:#f0e9ff;color:#6637da;border-color:#e4dbff}
+.learning-scene{filter:drop-shadow(0 18px 32px #4f36b71a)}
+.scene-orbit{border-color:#c9bbf5}
+.dashboard{border-radius:24px;box-shadow:0 25px 75px #3e30a42a}
+.floating-card{border-radius:16px;box-shadow:0 14px 38px #44319d24}
+.course-card{background:white;border-radius:21px;box-shadow:0 8px 24px #2538690f}
+.course-card:hover{box-shadow:0 22px 44px #3549a224}
+.web-art{background:linear-gradient(140deg,#d2f0ff,#d6ddff)}
+.design-art{background:linear-gradient(135deg,#efe2ff,#d7ccff)}
+.python-art{background:linear-gradient(135deg,#e0f5ff,#d9e8fd)}
+.feature-card{border-radius:20px;box-shadow:0 10px 22px #1f27610e}
+.features-section{background:linear-gradient(180deg,#fafbff,#f3f5ff)}
+@media(max-width:700px){.hero{background:linear-gradient(145deg,#f7f9ff,#f2edff)}.course-card,.feature-card{border-radius:16px}}
