@@ -114,7 +114,7 @@ with sync_playwright() as pw:
    report['layout_checks']+=1
   context.close()
  # Focused converter behavior checks, including the supplied reference cases.
- context=browser.new_context(reduced_motion='reduce')
+ context=browser.new_context(reduced_motion='reduce',accept_downloads=True,permissions=['clipboard-read','clipboard-write'])
  page=context.new_page()
  page.set_viewport_size({'width':390,'height':844})
  page.goto(BASE+FOLDERS[2]+'/')
@@ -154,7 +154,13 @@ with sync_playwright() as pw:
  assert page.locator('#copy-all').is_enabled()
  assert page.locator('.copy-scale:enabled').count()==3
  assert page.locator('#history-list li').count()>=1
- report['feature_checks']+=3
+ page.locator('#copy-all').click()
+ assert 'copied' in page.locator('#copy-status').inner_text().lower()
+ assert 'C:' in page.evaluate('navigator.clipboard.readText()')
+ with page.expect_download() as download_info:
+  page.locator('#export-history').click()
+ assert download_info.value.suggested_filename=='tempconvert-history.csv'
+ report['feature_checks']+=5
  page.select_option('#precision','2')
  assert page.locator('#result-K').inner_text()=='298.15'
  page.select_option('#target-unit','F')
