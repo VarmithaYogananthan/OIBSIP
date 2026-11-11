@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 BASE=args.base_url.rstrip('/')+'/'
 FOLDERS=['WebDev-L1-LandingPage','WebDev-L1-Portfolio','WebDev-L1-TemperatureConverter']
 WIDTHS=[320,375,390,768,1024,1440,1920]
-report={'layout_checks':0,'anchor_clicks':0,'local_link_clicks':0,'screenshots':0,'external_urls':{},'valid_cases':0,'invalid_cases':0,'example_checks':0,'errors':[]}
+report={'layout_checks':0,'anchor_clicks':0,'local_link_clicks':0,'screenshots':0,'external_urls':{},'valid_cases':0,'invalid_cases':0,'example_checks':0,'feature_checks':0,'errors':[]}
 external=set()
 with sync_playwright() as pw:
  browser=pw.chromium.launch(executable_path=args.chromium,args=['--no-sandbox'])
@@ -40,11 +40,14 @@ with sync_playwright() as pw:
     assert href and href!='#'
     if href.startswith('#'):
      assert page.locator(href).count()==1,(folder,href)
+     if not link.is_visible() and link.locator('xpath=ancestor::details[1]').count():
+      item=link.locator('xpath=ancestor::details[1]')
+      if item.get_attribute('open') is None: item.locator('summary').click()
      link.click()
      assert page.evaluate('location.hash')==href
      report['anchor_clicks']+=1
     elif href.startswith('https:'): external.add(href)
-    elif href.startswith('mailto:'): assert href=='mailto:yvarmitha@gmail.com'
+    elif href.startswith('mailto:'): assert href.startswith('mailto:yvarmitha@gmail.com')
     else:
      target=link.evaluate('(el)=>el.href')
      result=page.request.get(target);assert result.ok,(target,result.status)
@@ -75,6 +78,27 @@ with sync_playwright() as pw:
     assert page.locator('#error').inner_text()==''
     page.locator('summary').click();assert page.locator('details').get_attribute('open') is not None
     page.locator('summary').click();assert page.locator('details').get_attribute('open') is None
+   # HTML/CSS only: filtering, expandable outlines, planning controls and FAQs.
+   if folder.endswith('LandingPage') and width in (390,1440):
+    page.locator('label[for="track-web"]').click()
+    assert page.locator('.course-card:visible').count()==1
+    assert page.locator('.course-card[data-track="web"]:visible').count()==1
+    page.locator('label[for="track-design"]').click()
+    assert page.locator('.course-card[data-track="design"]:visible').count()==1
+    page.locator('label[for="track-code"]').click()
+    assert page.locator('.course-card[data-track="code"]:visible').count()==1
+    page.locator('label[for="track-all"]').click()
+    assert page.locator('.course-card:visible').count()==3
+    page.locator('.course-outline').first.locator('summary').click()
+    assert page.locator('.course-outline').first.get_attribute('open') is not None
+    page.locator('label[for="pace-30"]').click()
+    assert page.locator('.plan-30').is_visible()
+    assert not page.locator('.plan-15').is_visible()
+    page.locator('label[for="pace-60"]').click()
+    assert page.locator('.plan-60').is_visible()
+    page.locator('.faq-list details').first.locator('summary').click()
+    assert page.locator('.faq-list details').first.get_attribute('open') is not None
+    report['feature_checks']+=9
    # Check content boxes fit; decorative overflow is clipped within artwork.
    for el in page.locator('main section, article, .button, input, select, .result-card').all():
     b=el.bounding_box()
@@ -114,6 +138,45 @@ with sync_playwright() as pw:
  page.locator('#temperature').fill('not a number');page.locator('#temperature').press('Enter');assert page.locator('#error').inner_text()
  page.get_by_role('button',name='Reset',exact=True).click();assert page.locator('#error').inner_text()=='';assert page.locator('#temperature').get_attribute('aria-invalid') is None
  page.locator('#temperature').fill('25');page.locator('#temperature').press('Enter');page.locator('#temperature').fill('26');assert page.locator('#result-C').inner_text()=='—'
+ # V2 converter: live preview, result focus/swap, precision, local history, export and theme.
+ page.get_by_role('button',name='Reset',exact=True).click()
+ page.locator('#live-mode').check()
+ page.locator('#temperature').fill('25')
+ assert values()['F']==77
+ page.locator('#temperature').fill('not-a-number')
+ assert page.locator('#error').inner_text()
+ assert page.locator('#result-C').inner_text()=='—'
+ page.locator('#live-mode').uncheck()
+ report['feature_checks']+=3
+ page.locator('#temperature').fill('25')
+ page.select_option('#unit','C')
+ page.get_by_role('button',name='Convert temperature').click()
+ assert page.locator('#copy-all').is_enabled()
+ assert page.locator('.copy-scale:enabled').count()==3
+ assert page.locator('#history-list li').count()>=1
+ report['feature_checks']+=3
+ page.select_option('#precision','2')
+ assert page.locator('#result-K').inner_text()=='298.15'
+ page.select_option('#target-unit','F')
+ page.locator('#swap-units').click()
+ assert page.locator('#temperature').input_value()=='77'
+ assert page.locator('#unit').input_value()=='F'
+ assert page.locator('#target-unit').input_value()=='C'
+ assert values()['C']==25
+ report['feature_checks']+=5
+ page.locator('#theme-toggle').click()
+ assert page.locator('body').evaluate('(el)=>el.classList.contains("light-theme")')
+ page.reload()
+ assert page.locator('body').evaluate('(el)=>el.classList.contains("light-theme")')
+ assert page.locator('#history-list li').count()>=1
+ page.locator('#theme-toggle').click()
+ report['feature_checks']+=3
+ page.locator('#history-list li').first.get_by_role('button',name='Use',exact=False).click()
+ assert page.locator('#result-C').inner_text()!='—'
+ page.locator('#clear-history').click()
+ assert page.locator('#history-list li').count()==0
+ assert page.locator('#export-history').is_disabled()
+ report['feature_checks']+=3
  # Normal motion: every site retains sticky navigation and scrollable targets.
  context=browser.new_context()
  page=context.new_page()
