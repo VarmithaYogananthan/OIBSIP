@@ -238,7 +238,7 @@ document.querySelector("#swap-units").addEventListener("click", function() {
     targetUnit.value = from;
     document.querySelector("#input-symbol").textContent = SYMBOLS[to];
     if (translated !== null) {
-      input.value = String(translated);
+      input.value = String(Number(translated.toPrecision(14))); // Avoid binary-float artifacts such as 76.99999999999994
       form.requestSubmit();
     } else {
       clearResults("Units swapped. Enter a temperature to convert.");
