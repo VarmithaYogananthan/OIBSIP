@@ -1,3 +1,5 @@
+> **V2 NOTICE (11 November 2026):** The results below describe the earlier verified release at commit `70c6b966`, not the newest EduSpark and TempConvert feature additions. New browser tests have been added for CSS course filtering, syllabus disclosure, study planner, FAQ, converter live preview, swap, precision, copy, CSV, history, theme persistence and responsiveness, but **the new tests have not yet been executed**. Re-run `tests/browser-check.py` and `node --test tests/converter.test.cjs`, refresh all affected screenshots, and record the new results before submitting. Do not represent the historic counts as verification of V2 features.
+
 # Final UI & functionality verification
 
 Verified 11 November 2026 on the existing `feat/level-1-web-development` branch. This record supersedes the earlier Forma and intermediate-theme screenshots and notes.
