@@ -1,62 +1,89 @@
-# TempConvert — Temperature Converter
+# TempConvert — Climate Glass Premium
 
-Oasis Infobyte · Web Development & Designing · Level 1
+**Oasis Infobyte — Web Development & Designing · Level 1 · Task 3**
 
-## Technology
+## Overview
 
-HTML5, CSS3 and Vanilla JavaScript. Original design and source code; no templates, external fonts, libraries, build tools, backend, or database. Works offline after download.
+An original, responsive internship project built without a framework, build system, backend, or database. This project runs directly from its static files and has no remote font or design-library dependency.
 
-## Setup and usage
+## Technologies
 
-1. Clone the existing repository: `git clone https://github.com/VarmithaYogananthan/OIBSIP.git`.
-2. Check out the review branch: `git checkout feat/level-1-web-development`.
-3. Open `WebDev-L1-TemperatureConverter/index.html` in a modern browser. No installation is needed.
-4. Alternatively, from the repository root run `python3 -m http.server 8000`, then visit `http://localhost:8000/WebDev-L1-TemperatureConverter/`.
+HTML5 + CSS3 + Vanilla JavaScript. Browser-native Grid, Flexbox, fluid sizing, media queries, CSS hover effects, and reduced-motion support. No runtime packages to install.
 
-Keep the three task folders next to one another so portfolio project links resolve.
+## Features
 
-## Screenshot instructions
+- Dark navy climate gradients with blue, cyan, violet, pink, and warm-orange accents.
+- Frosted-glass input panel, clear Celsius/Fahrenheit/Kelvin selector, glowing Convert action, Reset, and three labelled result cards.
+- Full-number parsing, finite-input validation, absolute-zero limits, clear errors, and rejection of conversion overflow.
+- Enter submits; Reset clears input/errors/results and restores Celsius; editing input or changing scale clears stale results.
+- Five functional quick examples: 0 °C, 25 °C, 100 °C, 98.6 °F, and 0 K. Each uses the same form and calculation path as manual input.
+- Accessible live results, input labels, error focus, reference values, and expandable formulas.
 
-1. Open the project in Chrome, Firefox, or Edge.
-2. Capture a desktop view at 1440 × 1000 and a mobile view at 390 × 844 using browser developer tools and its screenshot command.
-3. For a full-page screenshot, use the browser’s “Capture full size screenshot” option.
-4. Save captures in this folder’s `screenshots/` directory as `desktop.png` and `mobile.png`. Captures made during automated review are included there.
-5. Check navigation, focus visibility, text wrapping, and horizontal overflow before recording your internship demonstration.
+## Folder structure
 
-## Accessibility and responsive design
+```text
+WebDev-L1-TemperatureConverter/
+index.html
+styles.css
+README.md
+screenshots/
+  desktop.png
+  mobile.png
+converter.js
+script.js
+```
 
-Semantic landmarks, a skip link, visible keyboard focus, fluid typography, responsive grid layouts, and reduced-motion support. No remote assets are required.
+## Run locally
 
-## Usage
+Clone the existing repository and check out the review branch:
 
-Enter a temperature, choose the input scale, and select **Convert temperature** (or press Enter). All three scales appear together. Reset clears the input, errors, and results and returns to Celsius. Editing input clears old results to avoid displaying stale conversions.
+```sh
+git clone https://github.com/VarmithaYogananthan/OIBSIP.git
+cd OIBSIP
+git checkout feat/level-1-web-development
+python3 -m http.server 8000
+```
 
-Signed decimals and scientific notation are accepted (for example `-10`, `.5`, `1e3`). Use a decimal dot; commas, units in the field, partial numbers, hexadecimal, blank input, non-finite values, and numeric overflow are rejected. Values below −273.15 °C / −459.67 °F / 0 K are rejected before conversion. There is no tolerance that accepts below-limit input.
+Open `http://localhost:8000/WebDev-L1-TemperatureConverter/`. Alternatively open this folder’s `index.html` directly in an unrestricted modern browser. Keep all three task folders together for the portfolio’s sibling-project links. Python is optional, used only as a convenient local static server.
 
-## Formulas
+## Responsive design and accessibility
 
-- Celsius → Kelvin: `K = C + 273.15`
-- Fahrenheit → Kelvin: `K = (F + 459.67) × 5/9`
-- Kelvin → Celsius: `C = K − 273.15`
-- Kelvin → Fahrenheit: `F = K × 9/5 − 459.67`
+Layouts are verified at 320, 375, 390, 768, 1024, 1440, and 1920 CSS pixels. Navigation remains visible without a menu script. Sections/cards stack on phones; flexible fields, fluid typography, and capped content widths support larger displays.
 
-No intermediate rounding. Display precision is up to six decimals, or six decimal places in scientific notation for magnitudes below 0.000001 or at least 1 billion. JavaScript uses IEEE-754 floating point; results are not for precision-critical scientific calculations.
+Semantic headings/landmarks, skip links, visible keyboard focus, meaningful link labels, accessible color choices, sticky-header anchor offsets, and reduced-motion preferences are implemented. Decorative SVGs are hidden from assistive technology. Automated checks do not constitute a full accessibility audit.
 
-## Manual checks
+## Validation and testing
 
-- `0 °C` → `32 °F`, `273.15 K`.
-- `212 °F` → `100 °C`, `373.15 K`.
-- `0 K` → `−273.15 °C`, `−459.67 °F`.
-- `−40 °C` → `−40 °F`, `233.15 K`.
-- Reject empty input, `abc`, `12abc`, `Infinity`, and temperatures below each scale’s absolute zero.
-- Test reset, Enter submission, changed-input clearing, error recovery, and keyboard focus.
+See [TESTING.md](../TESTING.md) for actual browser results, test commands, scope, and limitations. The browser checks cover navigation/CTA destinations, local assets and CSS loading, keyboard focus, overflow, interactive controls, console errors, and screenshots.
 
-## Optional automated calculation checks
+## Screenshots
 
-From the repository root, with Node.js 18+: `node --test tests/converter.test.cjs`. The test uses Node’s built-in runner with no packages to install. `converter.js` contains pure calculation/formatting functions; `script.js` manages the form and accessible results.
+- [Desktop](screenshots/desktop.png) — actual Chromium capture, 1440 × 1000 viewport.
+- [Mobile](screenshots/mobile.png) — actual Chromium capture, 390 × 844 viewport.
 
-## Premium UI and quick examples
+To refresh: serve the repository, open the page in Chromium, set each viewport in developer tools, return to the page top, and use **Capture full size screenshot**. Save the exact filenames above. Full-page images extend beyond the viewport height. For the converter, select the **Mild day 25 °C** example before capturing to show real calculated output.
 
-The converter now uses a responsive climate-glass colour system. Quick example buttons set verified Celsius/Fahrenheit/Kelvin values and submit via the existing validated conversion handler. Converted results are displayed only after the user presses Convert or selects an example; Reset clears the form and results. All calculations remain in `converter.js`.
+## Known limitations
 
-The JavaScript behavior and styles were updated after the original automated browser run. Rerun tests and capture fresh desktop/mobile screenshots before submitting.
+JavaScript is required for calculations. A noscript message and static reference formulas remain available without it. JavaScript uses IEEE-754 floating point; tiny rounding differences are possible. Results display up to six decimals, with scientific notation for very large or very small values. Not intended for precision-critical scientific use.
+
+Chromium checks used a static local server. The managed environment blocks `file://` browser navigation; direct-file rendering was not verified here. Firefox, Safari, physical-device, and screen-reader testing have not been performed.
+
+## Submission
+
+Review desktop/mobile screenshots and use the existing branch `feat/level-1-web-development` and [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) for internship review. Do not merge automatically.
+
+## Formulas and accepted input
+
+- `K = C + 273.15`
+- `K = (F + 459.67) × 5/9`
+- `C = K − 273.15`
+- `F = K × 9/5 − 459.67`
+
+No intermediate rounding. Lower bounds: −273.15 °C, −459.67 °F, and 0 K. Signed decimals and scientific notation are accepted; blank input, commas, hexadecimal, partial numeric strings, non-finite values, and numeric overflow are rejected. No validation tolerance admits below-limit numeric input.
+
+`converter.js` contains the pure calculations; `script.js` manages the form and examples. Existing calculation logic and tests are preserved. Optional checks, from the repository root with Node.js 18+:
+
+```sh
+node --test tests/converter.test.cjs
+```

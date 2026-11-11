@@ -416,3 +416,14 @@ body{background:#fff;color:var(--navy);font-family:Inter,"Segoe UI",Arial,sans-s
 .feature-card{border-radius:20px;box-shadow:0 10px 22px #1f27610e}
 .features-section{background:linear-gradient(180deg,#fafbff,#f3f5ff)}
 @media(max-width:700px){.hero{background:linear-gradient(145deg,#f7f9ff,#f2edff)}.course-card,.feature-card{border-radius:16px}}
+
+/* Final refinement: translucent learning surfaces and consistent premium CTAs. */
+.dashboard { background:linear-gradient(135deg,#ffffffed,#f8f7ffdc); backdrop-filter:blur(14px); border-color:#ffffff; }
+.floating-card { background:#fffffff0; backdrop-filter:blur(12px); }
+.button-white { background:#fff; color:#244bc0; border-color:#fff; }
+.button-white:hover { background:#eef2ff; color:#18338b; }
+.button-secondary { color:#5132b1; }
+.course-link { border-radius:3px; }
+.course-link:hover .arrow { transform:translateX(3px); }
+.course-link .arrow { transition:transform .2s; }
+@media(prefers-reduced-motion:reduce) { .course-link .arrow { transition:none; } }

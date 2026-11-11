@@ -4,9 +4,9 @@ Three original, responsive Level 1 internship projects for **Oasis Infobyte**.
 
 | Task | Project | Technology | Documentation |
 | --- | --- | --- | --- |
-| 1 | [Forma landing page](WebDev-L1-LandingPage/index.html) | HTML5, CSS3 | [README](WebDev-L1-LandingPage/README.md) |
+| 1 | [EduSpark landing page](WebDev-L1-LandingPage/index.html) | HTML5, CSS3 | [README](WebDev-L1-LandingPage/README.md) |
 | 2 | [Personal portfolio](WebDev-L1-Portfolio/index.html) | HTML5, CSS3 | [README](WebDev-L1-Portfolio/README.md) |
-| 3 | [Thermo temperature converter](WebDev-L1-TemperatureConverter/index.html) | HTML5, CSS3, Vanilla JavaScript | [README](WebDev-L1-TemperatureConverter/README.md) |
+| 3 | [TempConvert — Climate Glass](WebDev-L1-TemperatureConverter/index.html) | HTML5, CSS3, Vanilla JavaScript | [README](WebDev-L1-TemperatureConverter/README.md) |
 
 ## Run locally
 
@@ -30,9 +30,9 @@ Optional dependency-free calculation checks require Node.js 18+:
 node --test tests/converter.test.cjs
 ```
 
-## Before publishing your portfolio
+## Content and remaining review
 
-Replace the clearly marked personal placeholders and initials, add a verified LinkedIn profile URL, and supply your contact email. No qualifications or experience are claimed. The landing page’s Forma brand is a fictional design concept.
+The portfolio uses Varmitha Yogananthan’s verified source-portfolio details and original portrait, with provenance in its README. Contact uses the supplied email rather than a form. EduSpark is a fictional education-platform concept; its contact field remains an explicit placeholder. TempConvert uses the Climate Glass Premium theme and retains its tested conversion logic.
 
 ## Repository workflow
 

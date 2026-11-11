@@ -1,38 +1,80 @@
-# Personal Portfolio
+# Varmitha Yogananthan — Personal Portfolio
 
-Oasis Infobyte · Web Development & Designing · Level 1
+**Oasis Infobyte — Web Development & Designing · Level 1 · Task 2**
 
-## Technology
+## Overview
 
-HTML5 and CSS3 only. Original design and source code; no templates, external fonts, libraries, build tools, backend, or database. Works offline after download.
+An original, responsive internship project built without a framework, build system, backend, or database. This project runs directly from its static files and has no remote font or design-library dependency.
 
-## Setup and usage
+## Technologies
 
-1. Clone the existing repository: `git clone https://github.com/VarmithaYogananthan/OIBSIP.git`.
-2. Check out the review branch: `git checkout feat/level-1-web-development`.
-3. Open `WebDev-L1-Portfolio/index.html` in a modern browser. No installation is needed.
-4. Alternatively, from the repository root run `python3 -m http.server 8000`, then visit `http://localhost:8000/WebDev-L1-Portfolio/`.
+HTML5 + CSS3 only. Browser-native Grid, Flexbox, fluid sizing, media queries, CSS hover effects, and reduced-motion support. No runtime packages to install.
 
-Keep the three task folders next to one another so portfolio project links resolve.
+## Features
 
-## Screenshot instructions
+- Deep maroon/burgundy sections balanced with warm cream surfaces, rose details, and champagne gold highlights.
+- Home, About Me, Skills, Featured Projects, Education, Training & Experience, Contact, and footer.
+- Original portrait copied byte-for-byte from the provided portfolio; no retouching or replacement imagery.
+- Two working internship project demos, plus descriptions of Spendly, Green Leaf Grand, CRM & Automated Marketing, MovieReviewAPI, and Taskly / TaskFlow from the source portfolio.
+- Verified email (`mailto:yvarmitha@gmail.com`), GitHub profile, source repository links, visible navigation, and Back to Top.
+- Education and training use source-listed statuses; no new qualifications, employers, dates, grades, or internship completion claims.
 
-1. Open the project in Chrome, Firefox, or Edge.
-2. Capture a desktop view at 1440 × 1000 and a mobile view at 390 × 844 using browser developer tools and its screenshot command.
-3. For a full-page screenshot, use the browser’s “Capture full size screenshot” option.
-4. Save captures in this folder’s `screenshots/` directory as `desktop.png` and `mobile.png`. Existing captures predate the latest premium visual redesign and personal-detail changes; capture new screenshots before submission.
-5. Check navigation, focus visibility, text wrapping, and horizontal overflow before recording your internship demonstration.
+## Folder structure
 
-## Accessibility and responsive design
+```text
+WebDev-L1-Portfolio/
+index.html
+styles.css
+README.md
+screenshots/
+  desktop.png
+  mobile.png
+assets/
+  varmitha-portrait.jpg
+```
 
-Semantic landmarks, a skip link, visible keyboard focus, fluid typography, responsive grid layouts, and reduced-motion support. No remote assets are required.
+## Run locally
 
-## Personalize before publication
+Clone the existing repository and check out the review branch:
 
-The name, Jaffna location, qualifications, experience, and public contact address were adapted from the original GitHub portfolio. Verify that these details are still current before publication. The portrait remains a decorative initial, not a person's photo. The GitHub URL uses the repository owner supplied in the brief. No qualifications, employers, proficiency percentages, or experience have been invented. Skills describe technologies used by these projects.
+```sh
+git clone https://github.com/VarmithaYogananthan/OIBSIP.git
+cd OIBSIP
+git checkout feat/level-1-web-development
+python3 -m http.server 8000
+```
 
-Both linked internship project cards point to sibling projects, including EduSpark. A new Education & Training section summarizes available existing portfolio details. The source portfolio repository has been left intact, except its root index now publishes its richer pre-existing HTML version. Smooth navigation uses CSS and respects reduced-motion preferences.
+Open `http://localhost:8000/WebDev-L1-Portfolio/`. Alternatively open this folder’s `index.html` directly in an unrestricted modern browser. Keep all three task folders together for the portfolio’s sibling-project links. Python is optional, used only as a convenient local static server.
 
-## November premium visual refresh
+## Responsive design and accessibility
 
-The internship portfolio uses a deep maroon, rose, and champagne-gold palette drawn from the user's original GitHub portfolio. The source portfolio is distinct from this internship folder. Refresh both responsive screenshots after verifying the new styling in-browser.
+Layouts are verified at 320, 375, 390, 768, 1024, 1440, and 1920 CSS pixels. Navigation remains visible without a menu script. Sections/cards stack on phones; flexible fields, fluid typography, and capped content widths support larger displays.
+
+Semantic headings/landmarks, skip links, visible keyboard focus, meaningful link labels, accessible color choices, sticky-header anchor offsets, and reduced-motion preferences are implemented. Decorative SVGs are hidden from assistive technology. Automated checks do not constitute a full accessibility audit.
+
+## Validation and testing
+
+See [TESTING.md](../TESTING.md) for actual browser results, test commands, scope, and limitations. The browser checks cover navigation/CTA destinations, local assets and CSS loading, keyboard focus, overflow, interactive controls, console errors, and screenshots.
+
+## Screenshots
+
+- [Desktop](screenshots/desktop.png) — actual Chromium capture, 1440 × 1000 viewport.
+- [Mobile](screenshots/mobile.png) — actual Chromium capture, 390 × 844 viewport.
+
+To refresh: serve the repository, open the page in Chromium, set each viewport in developer tools, return to the page top, and use **Capture full size screenshot**. Save the exact filenames above. Full-page images extend beyond the viewport height. For the converter, select the **Mild day 25 °C** example before capturing to show real calculated output.
+
+## Known limitations
+
+No CV download is offered because the provided repository contains no PDF resume. No pretend contact form or unverified LinkedIn profile is included. Email requires a configured mail application; delivery was not tested. Live demos/source repositories for the five additional source-portfolio projects were not supplied, so their descriptions are informational rather than fake project buttons.
+
+Chromium checks used a static local server. The managed environment blocks `file://` browser navigation; direct-file rendering was not verified here. Firefox, Safari, physical-device, and screen-reader testing have not been performed.
+
+## Submission
+
+Review desktop/mobile screenshots and use the existing branch `feat/level-1-web-development` and [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) for internship review. Do not merge automatically.
+
+## Verified content and portrait provenance
+
+Source: [VarmithaYogananthan/portfolio](https://github.com/VarmithaYogananthan/portfolio), inspected at commit `bb0231ad54aed179f1ad864dcfa89d214b653d2f`. Content comes from `index.html`, with the archived original maroon page used to confirm the color identity and background details. Descriptions are condensed, not new achievement claims. Current education/training statuses reflect that source snapshot and should be reviewed when your circumstances change.
+
+The source contains an embedded JPEG portrait. `assets/varmitha-portrait.jpg` is the exact decoded byte sequence, reused under the owner’s instruction without modifying the photo. SHA-256: `d66059167c377d327f55ce07a4848c9caf9ab19fffdc3765f56b809c4a366d4b`.
