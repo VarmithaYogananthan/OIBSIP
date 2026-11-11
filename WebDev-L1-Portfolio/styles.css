@@ -51,3 +51,36 @@ footer{background:#0a0910;border-color:#ffffff1c}
 .contact p a{color:#ddb7ff;text-decoration:underline;text-underline-offset:4px}
 .navlinks{flex-wrap:wrap}
 @media(max-width:760px){.resume-grid{grid-template-columns:1fr}.resume-panel{padding:24px}.resume-section{padding-block:60px}}
+
+/* Premium personalised maroon, rose & champagne palette from the original portfolio. */
+:root{--muted:#bcb0b9;--accent:#e8c57e;--panel:#27131e;--border:#82505d}
+body{background:#170b14;color:#fff6f4;background-image:radial-gradient(ellipse at 85% 7%,#89254457,transparent 33%),radial-gradient(ellipse at 3% 47%,#8428402f,transparent 42%);font-family:Inter,"Segoe UI",Arial,sans-serif}
+header{background:#230b19ed;border-bottom:1px solid #d6a67036}
+.brand,.brand span{color:#f6d494}.navlinks a{color:#fff5ee}.navlinks a:hover{color:#f5c57b}
+.eyebrow{color:#efb78e}a:focus-visible,button:focus-visible{outline-color:#ffe09b}
+.hero::before{background:radial-gradient(ellipse at 76% 42%,#ac2b5666,transparent 50%)}
+.hero h1 span,.contact h2 span{color:#f4bb8e}
+.intro,.muted{color:#d5c5cc}
+.primary{background:linear-gradient(110deg,#b42c55,#e2a65c);box-shadow:0 12px 30px #9f244e55;color:#1d0a13}
+.primary:hover{background:linear-gradient(110deg,#cf3862,#f0bd75)}
+.secondary{color:#f5d5ae}
+.portrait{background:radial-gradient(circle at 50% 38%,#bc536a,#611b37 64%,#250c1d);border:1px solid #e5ac7e77;box-shadow:0 20px 80px #9d214955}
+.monogram{color:#ffd18a;text-shadow:0 0 55px #e7a06288}.orbit{border-color:#f2b87880}.star{color:#ffd39e}
+.strip{background:#3a1426;border-block:1px solid #d39d6b49}
+.about{border-color:#d4a48125}.details{border-color:#d8b08c40}.details span{color:#f0bd90}
+.skills{background:linear-gradient(145deg,#230d1b,#40172b)}
+.skills article{background:linear-gradient(145deg,#ffffff0b,#b23f520e);border:1px solid #d29b8655}
+.skills article:hover{border-color:#e3b27b}.skill-num{color:#efb984}.tag{color:#f0cdb2}
+.project-art{border:1px solid #f0c59a55}.forma-art{background:radial-gradient(circle at 86% 0,#c474cd,#8b2a5d 53%,#381427);color:white}
+.temp-art{background:radial-gradient(circle at 92% 0,#f6ba75,#a74443 45%,#492035);color:white}
+.project-bottom a{color:#f8c78b}.project-title h3{color:white}
+.resume-section{background:linear-gradient(120deg,#220b19,#3c172b);border-color:#d4a48133}
+.resume-panel{background:#ffffff0b;border:1px solid #dfaa8555}.resume-panel h3{color:#ffd9a9}
+.resume-point{background:#edae80;box-shadow:0 0 0 5px #edac8030}.resume-item:not(:last-child)::before{background:#9e5465}
+.resume-item p{color:#d4c2c8}
+.contact{background:radial-gradient(ellipse at 92% 15%,#b43f5888,transparent 54%),linear-gradient(105deg,#411427,#260e1c);border-color:#dfa77a44}
+.outline{border:1px solid #e6b68e;color:#fff1da}.outline:hover{background:#5e2b3a}
+.contact p a{color:#ffe0a6}
+footer{background:#170a13;border-color:#d4a48135}
+.navlinks a,.button,.project-bottom a{transition:color .2s,background .2s,transform .2s}
+@media(max-width:700px){.navlinks{gap:15px}.hero{padding-top:55px}.hero h1{font-size:clamp(2.5rem,8vw,4rem)}}
