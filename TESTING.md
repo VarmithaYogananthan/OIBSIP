@@ -38,3 +38,19 @@ The repository URL, supplied GitHub owner profile, and LinkedIn homepage each re
 - Supply real portfolio details, initials, email, and LinkedIn URL before publication.
 - Firefox, Safari, physical-device, and screen-reader testing were not performed. Keyboard and semantic markup checks do not constitute a full accessibility audit.
 - No deployment or automatic merge is included.
+
+## Task 1 update — EduSpark
+
+The following supersedes the original Forma landing page evidence above. Task 2 and Task 3 source, documentation, and screenshots remain unchanged.
+
+- Opened the updated EduSpark page in system Chromium through Python Playwright, with JavaScript disabled. Testing uses only the existing browser tooling; the website contains no scripts or build dependencies.
+- Checked viewport widths **320, 375, 390, 768, 1024, 1440, and 1920** pixels. No horizontal document overflow; main sections, cards, and CTAs stay within the viewport. Header click targets fit and do not overlap.
+- Clicked every visible internal navigation/CTA link at every width and verified that each URL fragment resolves to one real element. Course cards lead to their matching illustrative learning paths. The skip link was verified separately through keyboard activation.
+- Verified keyboard focus through the skip link and header controls, visible focus outlines, reduced-motion behavior, normal smooth scrolling, and sticky-header positioning without obscuring the Courses section heading.
+- Confirmed no script elements or inline event handlers, a resolving local stylesheet, and no external images or font dependencies. No uncaught browser errors during checks.
+- Reviewed full-page desktop and mobile captures and corrected illustration spacing, icon rendering, and course artwork captions. Fresh EduSpark captures replace `WebDev-L1-LandingPage/screenshots/desktop.png` (1440 × 1000 viewport) and `mobile.png` (390 × 844 viewport).
+- The dashboard is explicitly labelled a concept preview; course progress and learning journeys are illustrative. No live enrollment, student statistics, or real endorsements are claimed.
+
+Direct `file://` navigation was attempted but Chromium returned `ERR_BLOCKED_BY_ADMINISTRATOR` under this environment’s managed URL policy. Browser verification therefore used the local static HTTP server. Relative assets were inspected and the page uses only static HTML/CSS, but direct-file rendering was not verified here. Firefox, Safari, physical-device, and screen-reader testing remain unperformed.
+
+The root overview and untouched portfolio still use the previous Forma project label; their relative landing-page links continue to resolve to EduSpark. They were left unchanged to respect the requested Task 1 scope. Contact information remains an explicit placeholder.
