@@ -485,3 +485,10 @@ body{background:#fff;color:var(--navy);font-family:Inter,"Segoe UI",Arial,sans-s
 @media(max-width:900px){.faq-layout{grid-template-columns:1fr;gap:30px}.study-planner-section .section-heading{align-items:start}}
 @media(max-width:700px){.course-filters,.study-pace-controls{gap:8px}.course-filters>span,.study-pace-controls>span{width:100%;margin-bottom:3px}.course-filters label,.study-pace-controls label{font-size:.69rem;padding:8px 11px}.study-planner{padding:19px 17px;border-radius:18px}.study-plan-card{padding:20px;min-height:0}.study-plan-footer a{margin-left:0;width:100%}.faq-section{padding-block:55px}.faq-list details{padding:16px}.faq-list summary{font-size:.84rem}}
 @media(prefers-reduced-motion:reduce){.course-filters label,.study-pace-controls label{transition:none}}
+
+.hero-planner-link{margin:14px 0 9px;font-size:.78rem;font-weight:750;color:#4d35b4}
+.hero-planner-link a{display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid #a79ae4;padding-bottom:4px}
+.hero-planner-link a:hover{color:#2659d5;border-color:#2659d5}
+.hero-planner-link a span{display:inline-block;transition:transform .18s}
+.hero-planner-link a:hover span{transform:translateX(3px)}
+@media(prefers-reduced-motion:reduce){.hero-planner-link a span{transition:none}}
