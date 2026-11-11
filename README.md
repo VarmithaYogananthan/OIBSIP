@@ -37,3 +37,7 @@ The portfolio uses Varmitha Yogananthan’s verified source-portfolio details an
 ## Repository workflow
 
 Work is submitted from `feat/level-1-web-development` into `main` for review. The existing repository was empty at the start; a minimal README established the base branch for the pull request. No existing files were removed and no additional repository was created.
+
+## November 2026 — feature-rich enhancement in review
+
+Task 1 EduSpark now has HTML/CSS-only course category filters, expandable course syllabi, a three-pace learning planner, FAQs and a verified project-enquiry email link. Task 3 TempConvert now includes optional live mode, source/target swapping, result copying, adjustable precision, local history, CSV export, theme switching and a visual temperature indicator. The pure conversion engine and Task 2 portfolio remain unchanged. These additions are on `feat/level-1-web-development` in PR #1; not merged. Older screenshots are not yet refreshed for these features, and the new end-to-end browser tests must be run before final submission.
