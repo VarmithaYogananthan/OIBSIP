@@ -37,3 +37,17 @@ a:focus-visible,button:focus-visible{outline-color:#bc8bff}
 .outline:hover{background:#53336f}
 footer{background:#0a0910;border-color:#ffffff1c}
 @media(max-width:700px){.hero{min-height:0}.portrait{max-width:340px}.strip .wrap{flex-wrap:wrap}.skills article{min-height:0}}
+
+/* Resume and verified career history, consistent with midnight violet style. */
+.resume-section{padding-block:95px;background:linear-gradient(135deg,#120f20,#191428);border-top:1px solid #ffffff14}
+.resume-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.resume-panel{border:1px solid #8e65b24d;background:linear-gradient(145deg,#ffffff0d,#ffffff04);padding:32px;border-radius:22px;box-shadow:0 12px 35px #0003}
+.resume-panel h3{margin-bottom:30px;color:#f4dcff}
+.resume-item{display:flex;gap:16px;position:relative;padding-bottom:25px}
+.resume-item:not(:last-child)::before{content:"";position:absolute;width:2px;background:#704a9f;left:6px;top:16px;bottom:0}
+.resume-point{display:block;width:14px;height:14px;flex:0 0 14px;border-radius:50%;background:#b67bf1;box-shadow:0 0 0 5px #7c45b326}
+.resume-item strong{display:block;color:#fff;font-size:.98rem;line-height:1.4}
+.resume-item p{font-size:.83rem;color:#b9afcf;margin:8px 0 0}
+.contact p a{color:#ddb7ff;text-decoration:underline;text-underline-offset:4px}
+.navlinks{flex-wrap:wrap}
+@media(max-width:760px){.resume-grid{grid-template-columns:1fr}.resume-panel{padding:24px}.resume-section{padding-block:60px}}
