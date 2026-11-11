@@ -16,6 +16,11 @@ HTML5 + CSS3 only. Browser-native Grid, Flexbox, fluid sizing, media queries, CS
 - Blue/violet gradient CTAs, soft lavender backgrounds, glass-inspired learning cards, and original CSS/SVG course artwork.
 - Courses/Get Started/Explore Courses lead to Courses; Why EduSpark? leads to Features; course cards lead to their matching example paths.
 - Every informational action has a real destination. No live courses, login, payment, or enrollment are implied.
+- Native, no-JavaScript category filters show all paths or Web Development, UI/UX Design, or Python individually.
+- Each course includes an expandable sample syllabus, capstone idea, and matching learner journey.
+- Interactive CSS-only 15/30/60-minute study planner demonstrates alternative routines without collecting data.
+- Five expandable FAQ answers provide clear guidance on choosing a path and understanding the static-site scope.
+- Project creator contact uses a verified mailto link; it is not a student-support inbox.
 
 ## Folder structure
 
@@ -61,10 +66,14 @@ To refresh: serve the repository, open the page in Chromium, set each viewport i
 
 ## Known limitations
 
-Static learning-platform concept. The dashboard progress and sample learning journeys are explicitly illustrative. Contact information remains a safe `[Add your email]` placeholder. No actual courses or enrollment are implemented.
+Static learning-platform concept. The dashboard progress and sample learning journeys are explicitly illustrative. The footer now links to the project creator’s verified email for concept enquiries, not live course support. No actual courses or enrollment are implemented.
 
 Chromium checks used a static local server. The managed environment blocks `file://` browser navigation; direct-file rendering was not verified here. Firefox, Safari, physical-device, and screen-reader testing have not been performed.
 
 ## Submission
 
 Review desktop/mobile screenshots and use the existing branch `feat/level-1-web-development` and [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) for internship review. Do not merge automatically.
+
+## V2 verification required
+
+The interactive feature additions (CSS course filters, syllabus panels, routine picker, FAQ, contact action) were checked structurally, but **the previous screenshots and historic browser-test counts predate these new features**. Re-run `tests/browser-check.py` against a local static HTTP server and recapture the actual screenshots for desktop/mobile before submitting. Task 1 deliberately remains HTML/CSS only. No real course enrollment or backend is represented.
