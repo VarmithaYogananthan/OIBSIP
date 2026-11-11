@@ -278,3 +278,20 @@ footer { background:var(--dark); color:#cfb4c0; padding:40px 0 25px; }
   .experience-card { margin-left:20px; }
   .experience-card::before { top:25px; left:-28px; }
 }
+
+
+/* Additional project inventory: accessible links, polished cards, responsive grid. */
+.expanded-work-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:17px 22px}
+.expanded-work-grid .other-project{display:flex;flex-direction:column;min-width:0;min-height:255px;padding:24px;background:#fffaf8;border:1px solid #e9d2d9;border-radius:15px;box-shadow:0 9px 25px #42101d0d;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.expanded-work-grid .other-project:hover{transform:translateY(-3px);border-color:#bf8195;box-shadow:0 15px 30px #42101d18}
+.expanded-work-grid .other-project-count{font-size:.59rem;letter-spacing:.17em;color:#8b2946;font-weight:750}
+.expanded-work-grid .other-project h3{margin:16px 0 7px;color:#4b1429;font-size:1.13rem;line-height:1.26}
+.expanded-work-grid .other-project .other-project-tech{color:#9a536a;font-size:.7rem;font-weight:700;margin:0 0 14px}
+.expanded-work-grid .other-project p:not(.other-project-tech){color:#68545e;font-size:.8rem;line-height:1.65;margin:0 0 20px}
+.expanded-work-grid .other-project a,.expanded-work-grid .other-project .project-no-link{display:inline-flex;align-items:center;gap:6px;margin-top:auto;font-size:.75rem;font-weight:750;line-height:1.5}
+.expanded-work-grid .other-project a{color:#7c173c;text-decoration:underline;text-decoration-color:#ad7990;text-underline-offset:4px}
+.expanded-work-grid .other-project a:hover{color:#a9234f;text-decoration-thickness:2px}
+.expanded-work-grid .other-project .project-no-link{color:#826d77;font-weight:550}
+@media(max-width:970px){.expanded-work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.expanded-work-grid{grid-template-columns:1fr}.expanded-work-grid .other-project{min-height:0;padding:22px}.source-work-head{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){.expanded-work-grid .other-project{transition:none}}
