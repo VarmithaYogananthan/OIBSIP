@@ -15,7 +15,7 @@ HTML5 + CSS3 only. Browser-native Grid, Flexbox, fluid sizing, media queries, CS
 - Deep maroon/burgundy sections balanced with warm cream surfaces, rose details, and champagne gold highlights.
 - Home, About Me, Skills, Featured Projects, Education, Training & Experience, Contact, and footer.
 - Original portrait copied byte-for-byte from the provided portfolio; no retouching or replacement imagery.
-- Two working internship project demos, plus descriptions of Spendly, Green Leaf Grand, CRM & Automated Marketing, MovieReviewAPI, and Taskly / TaskFlow from the source portfolio.
+- Two working internship project demos, plus eight additional project cards: Spendly, Green Leaf Grand, CRM & Automated Marketing, MovieReviewAPI, Taskly / TaskFlow, Banking Application, HealthBridge, and SYNTIVO. Spendly and Banking Application link to public repositories; the rest are described without invented live demo links.
 - Verified email (`mailto:yvarmitha@gmail.com`), GitHub profile, source repository links, visible navigation, and Back to Top.
 - Education and training use source-listed statuses; no new qualifications, employers, dates, grades, or internship completion claims.
 
@@ -78,3 +78,7 @@ Review desktop/mobile screenshots and use the existing branch `feat/level-1-web-
 Source: [VarmithaYogananthan/portfolio](https://github.com/VarmithaYogananthan/portfolio), inspected at commit `bb0231ad54aed179f1ad864dcfa89d214b653d2f`. Content comes from `index.html`, with the archived original maroon page used to confirm the color identity and background details. Descriptions are condensed, not new achievement claims. Current education/training statuses reflect that source snapshot and should be reviewed when your circumstances change.
 
 The source contains an embedded JPEG portrait. `assets/varmitha-portrait.jpg` is the exact decoded byte sequence, reused under the owner’s instruction without modifying the photo. SHA-256: `d66059167c377d327f55ce07a4848c9caf9ab19fffdc3765f56b809c4a366d4b`.
+
+## Additional project cards (11 November 2026)
+
+The project inventory now includes verified public source links for Spendly and a C# Banking Application alongside five documented projects from the original portfolio and two ongoing concepts. HealthBridge and SYNTIVO are clearly labelled as work in development or prototype concepts; no production deployment is claimed. Updated card layout is responsive. The prior browser test/screenshot report predates this content change: rerun browser checks and refresh portfolio screenshots before final submission.
