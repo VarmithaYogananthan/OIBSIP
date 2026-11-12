@@ -8,6 +8,12 @@ Three original, responsive Level 1 internship projects for **Oasis Infobyte**.
 | 2 | [Personal portfolio](WebDev-L1-Portfolio/index.html) | HTML5, CSS3 | [README](WebDev-L1-Portfolio/README.md) |
 | 3 | [TempConvert — Climate Glass](WebDev-L1-TemperatureConverter/index.html) | HTML5, CSS3, Vanilla JavaScript | [README](WebDev-L1-TemperatureConverter/README.md) |
 
+## Internship requirement checklist
+
+See [Level 1 Task 1–3 submission checklist](LEVEL1_SUBMISSION_CHECKLIST.md) for a precise feature-by-feature mapping to the 2026 cohort task list, honest demo limitations, required video/LinkedIn/peer-evaluation steps, and final submission procedure.
+
+Task 2 now includes a [public-safe one-page downloadable PDF resume](WebDev-L1-Portfolio/assets/Varmitha_Resume_Public.pdf), linked from the hero and resume section. An automated [GitHub Actions browser/functional test](.github/workflows/verify-oibsip-level1.yml) runs on PRs and pushes.
+
 ## Run locally
 
 Open any project’s `index.html` directly in a modern browser, or serve the repository:
