@@ -56,8 +56,26 @@ with sync_playwright() as pw:
     else:
      target=link.evaluate('(el)=>el.href')
      result=page.request.get(target);assert result.ok,(target,result.status)
-     link.click();assert page.url==target
-     page.goto(url);report['local_link_clicks']+=1
+     # Download and PDF-preview links are valid local file actions, not same-tab navigation.
+     if href.lower().endswith('.pdf'):
+      assert result.body().startswith(b'%PDF-'),(target,'invalid PDF magic')
+      if link.get_attribute('download') is not None:
+       with page.expect_download() as download_event: link.click()
+       assert download_event.value.suggested_filename.endswith('.pdf')
+      elif link.get_attribute('target')=='_blank':
+       # Browser PDF viewers differ in headless environments; validate the target PDF above.
+       pass
+      else:
+       link.click();assert page.url==target;page.goto(url)
+     elif link.get_attribute('target')=='_blank':
+      with page.expect_popup() as popup_event: link.click()
+      popup=popup_event.value
+      assert popup.url==target,(target,popup.url)
+      popup.close()
+     else:
+      link.click();assert page.url==target
+      page.goto(url)
+     report['local_link_clicks']+=1
    page.goto(url)
    page.keyboard.press('Tab')
    assert page.locator(':focus').inner_text().startswith('Skip to')
