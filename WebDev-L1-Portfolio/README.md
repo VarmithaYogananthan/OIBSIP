@@ -17,6 +17,7 @@ HTML5 + CSS3 only. Browser-native Grid, Flexbox, fluid sizing, media queries, CS
 - Original portrait copied byte-for-byte from the provided portfolio; no retouching or replacement imagery.
 - Two working internship project demos, plus nine additional project cards: Spendly, Green Leaf Grand, CRM & Automated Marketing, MovieReviewAPI, Taskly / TaskFlow, Banking Application, HealthBridge, REQVIORA (formerly SYNTIVO), and Personal Portfolio Website. Spendly and Banking Application link to public repositories; the rest are described without invented live demo links.
 - Verified email (`mailto:yvarmitha@gmail.com`), GitHub profile, source repository links, visible navigation, and Back to Top.
+- **Task 2 resume requirement:** a real, one-page, downloadable PDF resume with verified education, skills, training, projects, and Jaffna-level location (no residential street address or private personal details).
 - Education and training use source-listed statuses; no new qualifications, employers, dates, grades, or internship completion claims.
 
 ## Folder structure
@@ -31,6 +32,7 @@ screenshots/
   mobile.png
 assets/
   varmitha-portrait.jpg
+  Varmitha_Resume_Public.pdf
 ```
 
 ## Run locally
@@ -65,7 +67,7 @@ To refresh: serve the repository, open the page in Chromium, set each viewport i
 
 ## Known limitations
 
-No CV download is offered because the provided repository contains no PDF resume. No pretend contact form or unverified LinkedIn profile is included. Email requires a configured mail application; delivery was not tested. Live demos/source repositories for the five additional source-portfolio projects were not supplied, so their descriptions are informational rather than fake project buttons.
+A real, one-page PDF resume is available at `assets/Varmitha_Resume_Public.pdf`, with both Download PDF and Preview Resume links in the portfolio. It was prepared from the user's CV/portfolio information and intentionally omits residential address and marital status for public sharing. No pretend contact form or unverified LinkedIn profile is included. Email requires a configured mail application; delivery was not tested. Live demos/source repositories for the five additional source-portfolio projects were not supplied, so their descriptions are informational rather than fake project buttons.
 
 Chromium checks used a static local server. The managed environment blocks `file://` browser navigation; direct-file rendering was not verified here. Firefox, Safari, physical-device, and screen-reader testing have not been performed.
 
@@ -85,3 +87,9 @@ The project inventory now includes verified public source links for Spendly and 
 
 ### Project inventory update
 The previous SYNTIVO project is now described as REQVIORA (formerly SYNTIVO) to reflect the user's newer naming, with no claim of production completion. The original standalone personal portfolio repository is also displayed as a separate project. The section now contains two featured internship projects and nine additional cards (11 total). The expanded project inventory is not a substitute for the user's confirmation that all other private/local projects are included. The current inventory is included in the 12 November 2026 browser/link checks and refreshed screenshots; see TESTING.md.
+
+## Resume download and privacy
+
+A one-page public-safe PDF is included at `assets/Varmitha_Resume_Public.pdf`. It uses verified details available in the existing user-provided CV and project portfolio, excludes residential address/marital status, and is a **public profile document**, not the unredacted original CV. The hero action downloads it as `Varmitha_Yogananthan_Resume.pdf`; the Resume section also has PDF preview and download links.
+
+Run the updated browser test against a local server to verify the PDF response begins with `%PDF-`, the download completes, and the rest of the portfolio remains responsive. The PDF stream length/xref/object offsets have been checked, but latest Chromium/PDF layout verification may still be pending.
