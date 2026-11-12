@@ -1,67 +1,76 @@
 # OIBSIP — Web Development & Designing
 
-Three original, responsive Level 1 internship projects for **Oasis Infobyte**.
+Three original Level 1 internship projects for **Oasis Infobyte**, by Varmitha Yogananthan.
 
-| Task | Project | Technology | Documentation |
+| Task | Working entry | Technology | Documentation |
 | --- | --- | --- | --- |
-| 1 | [EduSpark landing page](WebDev-L1-LandingPage/index.html) | HTML5, CSS3 | [README](WebDev-L1-LandingPage/README.md) |
-| 2 | [Personal portfolio](WebDev-L1-Portfolio/index.html) | HTML5, CSS3 | [README](WebDev-L1-Portfolio/README.md) |
-| 3 | [TempConvert — Climate Glass](WebDev-L1-TemperatureConverter/index.html) | HTML5, CSS3, Vanilla JavaScript | [README](WebDev-L1-TemperatureConverter/README.md) |
+| 1 | [EduSpark landing page](WebDev-L1-LandingPage/index.html) | HTML5 + CSS3 | [README](WebDev-L1-LandingPage/README.md) |
+| 2 | [Personal portfolio](WebDev-L1-Portfolio/index.html) | HTML5 + CSS3 | [README](WebDev-L1-Portfolio/README.md) |
+| 3 | [TempConvert — Climate Glass](WebDev-L1-TemperatureConverter/index.html) | HTML5 + CSS3 + vanilla JavaScript | [README](WebDev-L1-TemperatureConverter/README.md) |
 
-## Internship requirement checklist
+The root [`index.html`](index.html) is the project hub. GitHub's file viewer displays HTML source; serve the files locally or configure Pages to see the rendered sites.
 
-See [Level 1 Task 1–3 submission checklist](LEVEL1_SUBMISSION_CHECKLIST.md) for a precise feature-by-feature mapping to the 2026 cohort task list, honest demo limitations, required video/LinkedIn/peer-evaluation steps, and final submission procedure.
+## Official requirements and status
 
-Task 2 now includes a [public-safe one-page downloadable PDF resume](WebDev-L1-Portfolio/assets/Varmitha_Resume_Public.pdf), linked from the hero and resume section. An automated [GitHub Actions browser/functional test](.github/workflows/verify-oibsip-level1.yml) runs on PRs and pushes.
+[LEVEL1_SUBMISSION_CHECKLIST.md](LEVEL1_SUBMISSION_CHECKLIST.md) maps the implementation to the [official SIP task list](https://docs.google.com/document/d/1p4uB1o7RU3YqfUDFXRbL-YSMS-x6vM90LMo_IV7jgq0/edit), reached from the 6 November 2026 Oasis Infobyte orientation email and rechecked on 12 November 2026. Level 1 requires **all three** core tasks. The extra dashboards and downloadable resume exceed the mandatory task-card scope.
+
+The original [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) **was merged** into `main` on 12 November 2026. Final audit fixes are reviewed separately on `fix/level1-final-verification`; no PR is merged automatically. The verified base on `main` is `9a8f39a`.
 
 ## Run locally
 
-Open any project’s `index.html` directly in a modern browser, or serve the repository:
-
 ```sh
+git clone https://github.com/VarmithaYogananthan/OIBSIP.git
+cd OIBSIP
+git checkout main
 python3 -m http.server 8000
 ```
 
-Visit `http://localhost:8000/WebDev-L1-LandingPage/`, `http://localhost:8000/WebDev-L1-Portfolio/`, or `http://localhost:8000/WebDev-L1-TemperatureConverter/`.
+Open `http://localhost:8000/` for the hub. The three task folders are direct entries beneath it. The static pages have no install step or build system. Use HTTP for the browser-local demos so they share a consistent origin.
 
-No dependencies, build, account, backend, or database are needed. Keep all task folders alongside one another for the portfolio’s project links. The repository links above open source files on GitHub; use the local URLs to view the rendered pages.
+## Extra EduSpark experiences
 
-## Screenshots and verification
+The original Task 1 landing page remains **HTML/CSS-only**. Its course images, headings and Explore actions open separate static [Web Development](WebDev-L1-LandingPage/courses/web-development.html), [UI/UX](WebDev-L1-LandingPage/courses/ui-ux-design.html) and [Python](WebDev-L1-LandingPage/courses/python-programming.html) details pages.
 
-Each task includes desktop/mobile PNGs in `screenshots/` and instructions for capturing replacements. See [TESTING.md](TESTING.md) for tested behavior and limitations.
+- [Learner landing](WebDev-L1-LandingPage/apps/user/welcome.html) → [Learner dashboard](WebDev-L1-LandingPage/apps/user/index.html): catalog search/filter, course details, local demo profiles, enrollment, lesson checklists, progress and announcements.
+- [Admin landing](WebDev-L1-LandingPage/apps/admin/welcome.html) → [Admin dashboard](WebDev-L1-LandingPage/apps/admin/index.html): course create/edit/hide/delete, learner management, announcements, reports and CSV export.
 
-Optional dependency-free calculation checks require Node.js 18+:
+JavaScript is confined to these optional apps and Task 3. The dashboards are **public, browser-local prototypes** without secure authentication, backend services or cross-device synchronization. Their local data is shared only on the same origin/browser profile. See [app documentation](WebDev-L1-LandingPage/apps/README.md).
+
+## Portfolio and public resume
+
+The portfolio retains the original portrait, maroon/rose/gold identity, 11 project entries, education and training. Verified destinations are used where supplied; projects without public source/demo links remain informational.
+
+The [one-page public resume](WebDev-L1-Portfolio/assets/Varmitha_Resume_Public.pdf) has working preview and download actions. It omits a residential street address and private personal CV fields. The final audit checked its HTTP/MIME response, download bytes and rendered page. Review personal details and current training statuses before submission.
+
+## Verification and screenshots
+
+[TESTING.md](TESTING.md) records actual results, limitations, commands and the audit against the `/OIBSIP/` hosting prefix. The task folders each contain real Chromium `screenshots/desktop.png` and `screenshots/mobile.png` captures. The optional browser suites require Python Playwright and Chromium as test tooling; the sites themselves have no runtime packages.
 
 ```sh
 node --test tests/converter.test.cjs
+python3 tests/browser-check.py --base-url http://127.0.0.1:8000 --chromium /usr/bin/chromium
+python3 tests/feature-check.py --base-url http://127.0.0.1:8000 --chromium /usr/bin/chromium
+python3 tests/eduspark-apps.py --base-url http://127.0.0.1:8000 --chromium /usr/bin/chromium
 ```
 
-## Content and remaining review
+The additional `tests/submission-audit.py` checks subpath assets, resume actions and extended cross-app workflows. The [GitHub Actions workflow](.github/workflows/verify-oibsip-level1.yml) serves the checkout under `/OIBSIP/` and runs all four browser suites plus the Node tests. Check the current PR's **Checks** tab before merging.
 
-The portfolio uses Varmitha Yogananthan’s verified source-portfolio details and original portrait, with provenance in its README. Contact uses the supplied email rather than a form. EduSpark is a fictional education-platform concept; its contact link is for project enquiries rather than live course support. TempConvert uses the Climate Glass Premium theme and retains its tested conversion logic.
+## GitHub Pages — activation still required
 
-## Repository workflow
+On 12 November 2026, the Pages API and expected public URL both returned **404**. A published site was not verified, and this audit did not enable hosting.
 
-Work is submitted from `feat/level-1-web-development` into `main` for review. The existing repository was empty at the start; a minimal README established the base branch for the pull request. No existing files were removed and no additional repository was created.
+To activate after reviewing the final verification PR:
 
-## November 2026 — feature-rich enhancement in review
+1. Merge the reviewed fixes into `main` when satisfied.
+2. In this repository, open **Settings → Pages → Build and deployment**.
+3. Set **Source: Deploy from a branch**, **Branch: main**, **Folder: / (root)**, then **Save**.
+4. Wait for the Pages build/deployment to succeed in **Actions**.
+5. Verify the expected address `https://varmithayogananthan.github.io/OIBSIP/` returns the project hub; follow all three task links, course pages, role pages and resume download. Treat this address as a proposed destination until deployment is confirmed.
 
-Task 1 EduSpark now has HTML/CSS-only course category filters, expandable course syllabi, a three-pace learning planner, FAQs and a verified project-enquiry email link. Task 3 TempConvert now includes optional live mode, source/target swapping, result copying, adjustable precision, local history, CSV export, theme switching and a visual temperature indicator. The pure conversion engine and Task 2 portfolio remain unchanged. These additions are on `feat/level-1-web-development` in PR #1; not merged. The full browser and extended regression suites have now passed; all six real desktop/mobile screenshots are refreshed. See TESTING.md for the 12 November 2026 results and remaining limits.
+The browser audit verified the repository subpath locally. It does not prove a public deployment is live. No custom domain or build system is needed.
 
-## EduSpark learner/admin demos
+## Personal submission steps
 
-Task 1 now includes two extra independent browser-local apps: [Learner demo](WebDev-L1-LandingPage/apps/user/) and [Admin demo](WebDev-L1-LandingPage/apps/admin/), linked directly from the existing EduSpark landing page. The learner demo includes catalog, lesson checklists and progress; the admin demo includes course CRUD, local learner metrics, announcements and CSV reports. The original internship landing page remains HTML/CSS-only, and the new JavaScript runs only in the demo web apps.
+Review the final sites and resume, then follow the [submission checklist](LEVEL1_SUBMISSION_CHECKLIST.md). Record one live demo per task, beginning with a two-second title card containing full name, track and task title. Post the demos to LinkedIn, tag Oasis Infobyte and include `#oasisinfobyte`; leave substantive comments on at least two fellow interns' videos. Submit repository/documentation links and a live demo if applicable through the official form in the orientation email.
 
-These are frontend demonstration interfaces: no secure authentication, production admin access control, live registration, backend, shared database or cross-device synchronization. Use a local static server, and do not enter sensitive information. See [app documentation](WebDev-L1-LandingPage/apps/README.md) and the new `tests/eduspark-apps.py` browser workflow script. The new separate-app suite completed 16 successful browser scenario groups in GitHub Actions run 43176029060.
-
-## EduSpark routing and dual landing-page enhancement
-
-The public EduSpark landing page now opens distinct static pages for each featured course: Web Development, UI/UX Design and Python Programming. Clicking a course image, heading, or Explore link navigates to a dedicated curriculum/details page. A corresponding details screen is also available for **all** Learner App catalog courses, including admin-created ones, via `#course/<id>`.
-
-The EduSpark role buttons now open the **separate Learner landing** (`WebDev-L1-LandingPage/apps/user/welcome.html`) and **separate Admin landing** (`WebDev-L1-LandingPage/apps/admin/welcome.html`) before their respective dashboards. No real secure role login is implied. Both apps remain a frontend-only shared-browser demo. The original HTML/CSS landing-page scope is preserved.
-
-Additional Playwright navigation and responsive tests have been added in `tests/eduspark-apps.py`; the new routes completed 16 passing Chromium scenario groups in GitHub Actions run 43176029060. New screenshots are available from its artifact; rerun checks on later commits.
-
-## GitHub Pages entry
-
-The root [`index.html`](index.html) is a lightweight project hub linking all three Level 1 sites. After the reviewed PR is merged to `main`, GitHub Pages can serve the root and task folders from the same deployment. Hosting is not enabled automatically by this repository; follow GitHub Pages settings before sharing any live URL.
+The orientation email states **15 December 2026** as the deadline; check official communications for changes. No videos, LinkedIn posts, peer comments or official form submission were made by this repository audit.

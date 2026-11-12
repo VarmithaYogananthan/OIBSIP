@@ -68,7 +68,7 @@
     $("#course-detail-actions").innerHTML='<button type="button" class="btn" '+attr+'>'+text+'</button><button type="button" class="btn secondary" data-go="catalog">Browse other courses →</button>';
     $("#course-detail-enrollment").innerHTML=entry?'<p class="course-enroll-status">Enrolled · '+db.progress(entry,course)+'% complete</p><div class="course-progress"><div class="progress"><div class="progress-bar" style="width:'+db.progress(entry,course)+'%"></div></div></div>':'<p class="course-enroll-status">Not enrolled yet · '+course.lessons.length+' sample modules</p>';
     const publicPage=STATIC_DETAILS[id];
-    $("#course-static-link").innerHTML=publicPage?'<a class="course-source-link" href="'+publicPage+'">View public course overview ↗</a>':'<span class="form-note">Created inside the demo Admin catalog.</span>';
+    $("#course-static-link").innerHTML=publicPage?'<a class="course-source-link" href="'+publicPage+'">View public course overview <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" style="display:inline-block;vertical-align:-.1em"><path d="M6 18 18 6M6 6h12v12"/></svg></a>':'<span class="form-note">Created inside the demo Admin catalog.</span>';
     go("course");
     if(changeURL && window.location.hash!=="#course/"+encodeURIComponent(id)) window.history.pushState(null,"","#course/"+encodeURIComponent(id));
     return true;
@@ -203,8 +203,17 @@
     const target=e.target.closest("input[data-lesson]");
     if(!target)return;
     try{
-      db.toggleLesson(target.dataset.course,Number(target.dataset.lesson));
-      renderAll();notice("Lesson progress saved in this browser.");
+      const courseId=target.dataset.course, lessonIndex=Number(target.dataset.lesson);
+      const restoreFocus=document.activeElement===target;
+      db.toggleLesson(courseId,lessonIndex);
+      renderAll();
+      // Rendering progress rebuilds the checkbox list; keep keyboard users on their lesson.
+      if(restoreFocus){
+        const replacement=$$("#lesson-list input[data-lesson]").find(input=>
+          input.dataset.course===courseId && Number(input.dataset.lesson)===lessonIndex);
+        if(replacement)replacement.focus({preventScroll:true});
+      }
+      notice("Lesson progress saved in this browser.");
     }catch(err){notice(err.message,true);}
   });
   $("#lesson-back").addEventListener("click",()=>{

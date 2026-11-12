@@ -17,7 +17,7 @@ HTML5 + CSS3 only. Browser-native Grid, Flexbox, fluid sizing, media queries, CS
 - Original portrait copied byte-for-byte from the provided portfolio; no retouching or replacement imagery.
 - Two working internship project demos, plus nine additional project cards: Spendly, Green Leaf Grand, CRM & Automated Marketing, MovieReviewAPI, Taskly / TaskFlow, Banking Application, HealthBridge, REQVIORA (formerly SYNTIVO), and Personal Portfolio Website. Spendly and Banking Application link to public repositories; the rest are described without invented live demo links.
 - Verified email (`mailto:yvarmitha@gmail.com`), GitHub profile, source repository links, visible navigation, and Back to Top.
-- **Task 2 resume requirement:** a real, one-page, downloadable PDF resume with verified education, skills, training, projects, and Jaffna-level location (no residential street address or private personal details).
+- **Bonus public resume:** a real, one-page, downloadable PDF resume with verified education, skills, training, projects, and Jaffna-level location (no residential street address or private personal details).
 - Education and training use source-listed statuses; no new qualifications, employers, dates, grades, or internship completion claims.
 
 ## Folder structure
@@ -42,7 +42,7 @@ Clone the existing repository and check out the review branch:
 ```sh
 git clone https://github.com/VarmithaYogananthan/OIBSIP.git
 cd OIBSIP
-git checkout feat/level-1-web-development
+git checkout main
 python3 -m http.server 8000
 ```
 
@@ -63,7 +63,7 @@ See [TESTING.md](../TESTING.md) for actual browser results, test commands, scope
 - [Desktop](screenshots/desktop.png) — actual Chromium capture, 1440 × 1000 viewport.
 - [Mobile](screenshots/mobile.png) — actual Chromium capture, 390 × 844 viewport.
 
-To refresh: serve the repository, open the page in Chromium, set each viewport in developer tools, return to the page top, and use **Capture full size screenshot**. Save the exact filenames above. Full-page images extend beyond the viewport height. For the converter, select the **Mild day 25 °C** example before capturing to show real calculated output.
+To refresh: serve the repository, open the page in Chromium, set each viewport in developer tools, return to the page top, and use **Capture full size screenshot**. Save the exact filenames above. Full-page images extend beyond the viewport height. Keep all 11 project entries and the resume preview/download actions visible in the full-page capture.
 
 ## Known limitations
 
@@ -73,7 +73,7 @@ Chromium checks used a static local server. The managed environment blocks `file
 
 ## Submission
 
-Review desktop/mobile screenshots and use the existing branch `feat/level-1-web-development` and [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) for internship review. Do not merge automatically.
+The original [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) is merged into `main`. Final audit fixes are reviewed separately on `fix/level1-final-verification`; do not reopen PR #1 or merge follow-up changes automatically. Review the current screenshots and TESTING.md before internship submission.
 
 ## Verified content and portrait provenance
 
@@ -92,4 +92,4 @@ The previous SYNTIVO project is now described as REQVIORA (formerly SYNTIVO) to 
 
 A one-page public-safe PDF is included at `assets/Varmitha_Resume_Public.pdf`. It uses verified details available in the existing user-provided CV and project portfolio, excludes residential address/marital status, and is a **public profile document**, not the unredacted original CV. The hero action downloads it as `Varmitha_Yogananthan_Resume.pdf`; the Resume section also has PDF preview and download links.
 
-The updated Chromium browser test (GitHub Actions 43176029060) confirmed an HTTP PDF response starting with `%PDF-` and exercised the actual download. PDF xref offsets/stream length also passed programmatic checks. Final human PDF visual review is still recommended.
+The final audit verified an application/pdf response, byte-identical browser downloads and the actual preview tab, then rendered and reviewed the single PDF page. No residential street address, marital status or private CV attachment is present. Only the Spendly project-stack description was aligned with its verified HTML/CSS/JavaScript/local-storage repository; all other resume text and the one-page layout were preserved. Confirm personal details and ongoing education/training statuses before posting it.

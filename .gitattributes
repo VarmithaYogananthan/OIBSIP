@@ -1,0 +1,2 @@
+# Preserve generated public resumes byte-for-byte, including PDF xref whitespace.
+*.pdf binary
