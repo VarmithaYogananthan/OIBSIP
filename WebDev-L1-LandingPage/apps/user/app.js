@@ -2,10 +2,10 @@
 (function(){
   "use strict";
   const db=window.EduStore, esc=db.escapeHTML;
-  let selectedCourse=null, currentView="dashboard";
+  let selectedCourse=null, currentView="dashboard", detailId=null, pendingCourse=null;
   const $=selector=>document.querySelector(selector);
   const $$=selector=>Array.from(document.querySelectorAll(selector));
-  const title={dashboard:"Overview",catalog:"Explore courses",learning:"My learning",announcements:"Announcements",profile:"My profile"};
+  const title={dashboard:"Overview",catalog:"Explore courses",learning:"My learning",announcements:"Announcements",profile:"My profile",course:"Course details"};
   function notice(msg,bad=false){
     const status=$("#global-status");
     status.textContent=msg;status.classList.toggle("error",bad);
@@ -21,6 +21,7 @@
     });
     $("#page-label").textContent=title[view];
     if(view!=="learning") selectedCourse=null;
+    if(view!=="course" && window.location.hash.startsWith("#course/")) window.history.replaceState(null,"","#"+view);
     if(view==="learning") renderLearning();
     window.scrollTo({top:0,behavior:"instant"});
   }
@@ -39,7 +40,50 @@
       '<button type="button" class="btn" data-open="'+esc(course.id)+'">Continue learning →</button>':
       '<button type="button" class="btn" data-enroll="'+esc(course.id)+'">'+(person?"Join this course →":"Create demo learner to join →")+'</button>';
     const progress=entry?'<div class="course-progress"><span><span>Course progress</span><strong>'+pct+'%</strong></span><div class="progress"><div class="progress-bar" style="width:'+pct+'%"></div></div></div>':"";
-    return '<article class="course-card"><div class="course-cover '+esc(course.color||"blue")+'"><strong>'+esc(course.icon||"✦")+'</strong><span>'+esc(course.level||"Beginner")+'</span></div><div class="course-details"><div class="course-type">'+esc(course.category)+'</div><h3>'+esc(course.name)+'</h3><p>'+esc(course.description)+'</p><div class="course-meta"><span>'+esc(course.duration||"Flexible")+'</span><span>'+course.lessons.length+' lessons</span></div>'+progress+action+'</div></article>';
+    return '<article class="course-card"><a class="course-cover '+esc(course.color||"blue")+'" href="#course/'+encodeURIComponent(course.id)+'" data-detail="'+esc(course.id)+'" aria-label="View '+esc(course.name)+' course details"><strong>'+esc(course.icon||"✦")+'</strong><span>'+esc(course.level||"Beginner")+'</span></a><div class="course-details"><div class="course-type">'+esc(course.category)+'</div><h3><a href="#course/'+encodeURIComponent(course.id)+'" data-detail="'+esc(course.id)+'">'+esc(course.name)+'</a></h3><p>'+esc(course.description)+'</p><div class="course-meta"><span>'+esc(course.duration||"Flexible")+'</span><span>'+course.lessons.length+' lessons</span></div>'+progress+'<a class="btn secondary course-details-link" href="#course/'+encodeURIComponent(course.id)+'" data-detail="'+esc(course.id)+'">View course details →</a>'+action+'</div></article>';
+  }
+
+  const STATIC_DETAILS = {web:"../../courses/web-development.html",design:"../../courses/ui-ux-design.html",python:"../../courses/python-programming.html"};
+  function showCourseDetails(id,changeURL=true){
+    const state=db.load(), course=state.courses.find(item=>item.id===id), person=db.getLearner();
+    const entry=person?state.enrollments.find(item=>item.learnerId===person.id&&item.courseId===id):null;
+    if(!course || (course.active===false&&!entry)){
+      go("catalog");
+      notice("This course is not currently available in the demo catalog.",true);
+      return false;
+    }
+    detailId=id;
+    $("#course-detail-title").textContent=course.name;
+    $("#course-detail-subtitle").textContent="Detailed information, modules and learning goals for "+course.name+".";
+    $("#course-detail-category").textContent=course.category;
+    $("#course-detail-heading").textContent=course.name;
+    $("#course-detail-description").textContent=course.description;
+    $("#course-detail-level").textContent=course.level;
+    $("#course-detail-duration").textContent=course.duration;
+    $("#course-detail-count").textContent=course.lessons.length+" lessons";
+    $("#course-detail-icon").textContent=course.icon||"✦";
+    $("#course-detail-modules").innerHTML=course.lessons.map((lesson,index)=>'<li><span class="course-module-count">'+String(index+1).padStart(2,"0")+'</span><div><strong>'+esc(lesson)+'</strong><small>Interactive demo lesson checklist</small></div></li>').join("");
+    const text=entry?"Continue course →":person?"Join this course →":"Create demo learner to join →";
+    const attr=entry?'data-open="'+esc(id)+'"':'data-enroll="'+esc(id)+'"';
+    $("#course-detail-actions").innerHTML='<button type="button" class="btn" '+attr+'>'+text+'</button><button type="button" class="btn secondary" data-go="catalog">Browse other courses →</button>';
+    $("#course-detail-enrollment").innerHTML=entry?'<p class="course-enroll-status">Enrolled · '+db.progress(entry,course)+'% complete</p><div class="course-progress"><div class="progress"><div class="progress-bar" style="width:'+db.progress(entry,course)+'%"></div></div></div>':'<p class="course-enroll-status">Not enrolled yet · '+course.lessons.length+' sample modules</p>';
+    const publicPage=STATIC_DETAILS[id];
+    $("#course-static-link").innerHTML=publicPage?'<a class="course-source-link" href="'+publicPage+'">View public course overview ↗</a>':'<span class="form-note">Created inside the demo Admin catalog.</span>';
+    go("course");
+    if(changeURL && window.location.hash!=="#course/"+encodeURIComponent(id)) window.history.pushState(null,"","#course/"+encodeURIComponent(id));
+    return true;
+  }
+  function routeFromHash(){
+    const value=window.location.hash||"";
+    if(value.startsWith("#course/")){
+      let id;
+      try{id=decodeURIComponent(value.slice(8));}catch(error){go("catalog");return true;}
+      return showCourseDetails(id,false);
+    }
+    if(["#catalog","#learning","#announcements","#profile","#dashboard"].includes(value)){
+      go(value.slice(1));return true;
+    }
+    return false;
   }
   function renderCatalog(){
     const state=db.load(),query=$("#catalog-search").value.trim().toLowerCase(),category=$("#catalog-category").value,person=db.getLearner();
@@ -100,8 +144,11 @@
   }
   function renderAll(){
     renderProfile();renderStats();renderCatalog();renderLearning();renderAnnouncements();
+    if(currentView==="course" && detailId) showCourseDetails(detailId,false);
   }
   document.addEventListener("click",e=>{
+    const details=e.target.closest("[data-detail]");
+    if(details){e.preventDefault();showCourseDetails(details.dataset.detail);return;}
     const nav=e.target.closest("[data-view]");
     if(nav){go(nav.dataset.view);return;}
     const jump=e.target.closest("[data-go]");
@@ -109,6 +156,7 @@
     const join=e.target.closest("[data-enroll]");
     if(join){
       if(!db.getLearner()){
+        pendingCourse=join.dataset.enroll;
         $("#setup-panel").hidden=false;
         $("#setup-panel").scrollIntoView({behavior:"smooth",block:"center"});
         $("#new-name").focus();
@@ -132,7 +180,10 @@
       db.enterLearner($("#new-name").value,$("#new-email").value);
       $("#setup-status").textContent="Demo learner profile ready.";
       $("#setup-status").classList.remove("error");
-      renderAll();go("dashboard");notice("Welcome! Browse and join a course.");
+      renderAll();
+      if(pendingCourse){const courseToShow=pendingCourse;pendingCourse=null;showCourseDetails(courseToShow);}
+      else go("dashboard");
+      notice("Welcome! Browse the course details and join your first class.");
     }catch(err){$("#setup-status").textContent=err.message;$("#setup-status").classList.add("error");}
   });
   $("#profile-form").addEventListener("submit",e=>{
@@ -160,6 +211,10 @@
     selectedCourse=null;renderLearning();
     $("#my-courses").scrollIntoView({behavior:"smooth",block:"start"});
   });
+  $("#course-back").addEventListener("click",()=>go("catalog"));
+  window.addEventListener("hashchange",routeFromHash);
+  window.addEventListener("popstate",routeFromHash);
   window.addEventListener("storage",renderAll);
-  renderAll();go("dashboard");
+  renderAll();
+  if(!routeFromHash())go("dashboard");
 })();
