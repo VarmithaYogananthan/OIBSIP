@@ -41,3 +41,9 @@ Work is submitted from `feat/level-1-web-development` into `main` for review. Th
 ## November 2026 — feature-rich enhancement in review
 
 Task 1 EduSpark now has HTML/CSS-only course category filters, expandable course syllabi, a three-pace learning planner, FAQs and a verified project-enquiry email link. Task 3 TempConvert now includes optional live mode, source/target swapping, result copying, adjustable precision, local history, CSV export, theme switching and a visual temperature indicator. The pure conversion engine and Task 2 portfolio remain unchanged. These additions are on `feat/level-1-web-development` in PR #1; not merged. The full browser and extended regression suites have now passed; all six real desktop/mobile screenshots are refreshed. See TESTING.md for the 12 November 2026 results and remaining limits.
+
+## EduSpark learner/admin demos
+
+Task 1 now includes two extra independent browser-local apps: [Learner demo](WebDev-L1-LandingPage/apps/user/) and [Admin demo](WebDev-L1-LandingPage/apps/admin/), linked directly from the existing EduSpark landing page. The learner demo includes catalog, lesson checklists and progress; the admin demo includes course CRUD, local learner metrics, announcements and CSV reports. The original internship landing page remains HTML/CSS-only, and the new JavaScript runs only in the demo web apps.
+
+These are frontend demonstration interfaces: no secure authentication, production admin access control, live registration, backend, shared database or cross-device synchronization. Use a local static server, and do not enter sensitive information. See [app documentation](WebDev-L1-LandingPage/apps/README.md) and the new `tests/eduspark-apps.py` browser workflow script. Its runtime test results remain pending.
