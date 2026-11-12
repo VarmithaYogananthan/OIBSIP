@@ -1,3 +1,5 @@
+> **NEW EduSpark learner/admin demo scope (12 November 2026):** Two additional browser-local frontend apps have been added under `WebDev-L1-LandingPage/apps/user/` and `apps/admin/`. Previous V2 browser-test results and six screenshots do not cover these new pages. An additional Playwright script, `tests/eduspark-apps.py`, now tests signup demo, catalog, lessons, admin CRUD, notices, cross-app sync, reports, CSV and responsive layouts, but **it has not been executed in this GitHub editing environment**. Run it against a local static server and record actual results before calling the new apps browser-verified. The original landing page itself remains HTML/CSS-only.
+
 # OIBSIP — complete browser verification
 
 Verified **12 November 2026** on `feat/level-1-web-development`, after safely fast-forwarding the clean checkout to remote commit `5fc71c7`. These are results for the current interactive features, replacing the earlier V2 “not yet tested” notices. No features were removed.
