@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#121c46"><meta name="description" content="EduSpark learner web demo: course catalog, lesson checklists, saved progress and announcements. Browser-local prototype.">
+<title>EduSpark — Learner Workspace (Demo)</title><link rel="stylesheet" href="../app.css">
+<script src="../store.js" defer></script><script src="app.js" defer></script></head>
+<body><a class="skip" href="#main-content">Skip to workspace</a>
+<div class="shell">
+  <aside class="sidebar"><a class="brand" href="welcome.html"><span class="brand-mark">✧</span><span>Edu<b>Spark</b></span></a><div class="sidebar-label">Learner workspace</div>
+    <nav class="side-nav" aria-label="Learner navigation">
+      <button type="button" class="active" data-view="dashboard" aria-current="page"><span class="nav-icon">▦</span> Overview</button>
+      <button type="button" data-view="catalog"><span class="nav-icon">◈</span> Explore courses</button>
+      <button type="button" data-view="learning"><span class="nav-icon">◉</span> My learning</button>
+      <button type="button" data-view="announcements"><span class="nav-icon">✉</span> Announcements</button>
+      <button type="button" data-view="profile"><span class="nav-icon">♙</span> My profile</button>
+    </nav>
+    <div class="sidebar-bottom"><div class="demo-mini"><strong>Browser-local demo</strong><div>Not real student accounts. Your courses and progress stay in this browser.</div></div>
+      <a href="welcome.html">← Learner landing page</a><a href="../../index.html">EduSpark main website ↗</a><a href="../admin/welcome.html">Admin landing ↗</a></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div class="breadcrumb">EduSpark / <strong id="page-label">Overview</strong></div><div class="top-actions"><span class="mode-pill">● Learner demo</span><span class="user-chip" id="top-name">Guest learner</span><span class="avatar" id="avatar-label">G</span></div></header>
+    <main class="content" id="main-content">
+      <section class="panel" id="setup-panel" aria-label="Create demo learner profile" style="margin-bottom:24px">
+        <span class="kicker">FIRST TIME HERE?</span><h2>Start your learning preview</h2>
+        <p style="margin:9px 0 18px;max-width:680px">Enter a display name and demo email to try course enrollment and lesson progress. This is <strong>not a secure account</strong>; no passwords or emails are sent.</p>
+        <form id="demo-join-form" class="form-grid">
+          <div class="form-field"><label for="new-name">Display name</label><input class="input" id="new-name" name="name" required minlength="2" maxlength="60" autocomplete="name" placeholder="e.g. Alex Learner"></div>
+          <div class="form-field"><label for="new-email">Demo email</label><input class="input" id="new-email" name="email" type="email" maxlength="120" required autocomplete="email" placeholder="alex@example.com"></div>
+          <div class="form-field full"><button class="btn" type="submit" style="width:fit-content">Continue to learner demo →</button><span class="status" id="setup-status" role="status"></span></div>
+        </form>
+      </section>
+      <section class="view active" id="view-dashboard" aria-labelledby="dashboard-title">
+        <div class="page-heading"><div><span class="kicker">YOUR LEARNING SPACE</span><h1 id="dashboard-title">Welcome back, <span id="welcome-name">learner</span> ✦</h1><p>Your next big skill starts with a small step.</p></div><button type="button" class="btn secondary" data-go="catalog">Browse courses →</button></div>
+        <div class="hero"><div><span class="kicker">KEEP BUILDING</span><h2>Discover. Practise.<br>Grow into what’s next.</h2><p>Browse practical courses, save your learning journey and mark lessons complete.</p></div><button type="button" class="btn" data-go="catalog">Explore learning paths →</button></div>
+        <div class="stat-grid"><div class="stat"><div class="stat-top">Enrolled courses <span class="stat-icon">◈</span></div><strong id="stat-enrolled">0</strong><p>Learning journeys started</p></div>
+          <div class="stat"><div class="stat-top">Lessons completed <span class="stat-icon">✓</span></div><strong id="stat-lessons">0</strong><p>Across your courses</p></div>
+          <div class="stat"><div class="stat-top">Average progress <span class="stat-icon">↗</span></div><strong id="stat-progress">0%</strong><p>Keep up the momentum</p></div></div>
+        <div class="section-row"><div><h2>Recommended for you</h2><p>Start with a course that sparks your curiosity.</p></div><button class="btn ghost" type="button" data-go="catalog">View all courses →</button></div><div class="course-grid" id="featured-courses"></div>
+        <div class="section-row"><div><h2>Campus notices</h2><p>Announcements from the admin demo.</p></div><button class="btn ghost" type="button" data-go="announcements">See all →</button></div><div class="announcement-list" id="dash-announcements"></div>
+      </section>
+      <section class="view" id="view-catalog" aria-labelledby="catalog-title">
+        <div class="page-heading"><div><span class="kicker">FIND YOUR PATH</span><h1 id="catalog-title">Explore courses</h1><p>Browse beginner-friendly and intermediate learning previews.</p></div></div>
+        <div class="toolbar"><label for="catalog-search">Search courses</label><input class="input" id="catalog-search" type="search" placeholder="Search by course, category or topic"><label for="catalog-category">Category</label>
+          <select class="input" id="catalog-category"><option value="all">All categories</option><option>Web Development</option><option>Design</option><option>Programming</option><option>Data</option></select></div>
+        <p id="catalog-count" style="font-size:.76rem;margin-bottom:14px"></p><div class="course-grid" id="catalog-courses"></div>
+        <div id="catalog-empty" class="empty" hidden>No matching courses. Clear your filters to see all available courses.</div>
+      </section>
+      <section class="view" id="view-course" aria-labelledby="course-detail-title">
+        <div class="page-heading"><div><span class="kicker">DETAILED COURSE VIEW</span><h1 id="course-detail-title">Course details</h1><p id="course-detail-subtitle">Explore modules before beginning a learning journey.</p></div><button type="button" class="btn secondary" id="course-back">← Back to courses</button></div>
+        <div class="course-detail-hero"><div><span class="course-detail-chip" id="course-detail-category">Course category</span><h2 id="course-detail-heading">Discover your next skill.</h2><p id="course-detail-description"></p><div class="course-detail-meta"><span id="course-detail-level">Beginner</span><span id="course-detail-duration">4 weeks</span><span id="course-detail-count">4 lessons</span></div></div><div class="course-detail-icon" id="course-detail-icon" aria-hidden="true">✦</div></div>
+        <div class="course-detail-layout"><div class="panel"><span class="kicker">WHAT YOU'LL LEARN</span><h2 style="margin-bottom:17px">Course curriculum</h2><p style="margin-bottom:19px">Each module forms one step in a practical learning path. Join the demo course to track lesson completion.</p><ol class="course-detail-modules" id="course-detail-modules"></ol><div class="form-actions" id="course-detail-actions"></div></div>
+          <aside class="panel course-detail-aside"><span class="kicker">YOUR NEXT STEP</span><h2>Start your journey</h2><p style="margin:13px 0 17px">Explore the course details, join with your browser-local demo learner profile and follow your lesson checklist.</p><div id="course-detail-enrollment"></div><p class="form-note">No production signup, certification, payment or live classes are involved.</p><div id="course-static-link" style="margin-top:18px"></div></aside></div>
+      </section>
+      <section class="view" id="view-learning" aria-labelledby="learning-title">
+        <div class="page-heading"><div><span class="kicker">YOUR GROWTH</span><h1 id="learning-title">My learning</h1><p>Choose a joined course and check off lessons as you complete them.</p></div><button type="button" class="btn secondary" data-go="catalog">Find another course →</button></div>
+        <div id="my-courses" class="course-grid"></div>
+        <div id="my-empty" class="empty" hidden><strong>Nothing enrolled yet.</strong> Explore courses to begin your first learning journey.<div style="margin-top:17px"><button class="btn" type="button" data-go="catalog">Explore courses →</button></div></div>
+        <div id="lesson-detail" class="panel" hidden style="margin-top:24px">
+          <button class="back-link" id="lesson-back" type="button">← Back to my courses</button><span class="kicker">LESSON CHECKLIST</span>
+          <h2 id="lesson-title" style="font-size:1.55rem;margin-bottom:8px"></h2><p id="lesson-info"></p>
+          <div class="course-progress" id="lesson-progress"></div><div id="lesson-list" style="margin-top:18px"></div>
+          <p class="form-note">This is a demo checklist, not an assessed course or certificate.</p>
+        </div>
+      </section>
+      <section class="view" id="view-announcements" aria-labelledby="ann-title"><div class="page-heading"><div><span class="kicker">STAY IN THE LOOP</span><h1 id="ann-title">Announcements</h1><p>Latest notices published through the local admin demo.</p></div></div><div class="announcement-list" id="all-announcements"></div></section>
+      <section class="view" id="view-profile" aria-labelledby="profile-title">
+        <div class="page-heading"><div><span class="kicker">YOUR DEMO IDENTITY</span><h1 id="profile-title">My profile</h1><p>Update the display name shown across your learning workspace.</p></div></div>
+        <div class="panel profile-card"><div class="profile-display"><span class="avatar" id="profile-avatar">G</span><div><h2 id="profile-display-name">Guest learner</h2><p id="profile-email-text">No demo profile selected</p></div></div>
+          <form id="profile-form"><div class="form-field"><label for="profile-name">Display name</label><input class="input" id="profile-name" maxlength="60" required minlength="2"></div>
+            <div class="form-actions"><button class="btn" type="submit">Save display name</button><button class="btn secondary" type="button" id="signout">Switch demo profile</button></div>
+            <span class="status" id="profile-status" role="status"></span></form>
+          <p class="form-note">Demo data is stored locally; this profile is not protected by a password.</p>
+        </div>
+      </section>
+      <span class="status" id="global-status" role="status" aria-live="polite"></span>
+    </main><footer class="footer">EduSpark Learner Preview · Browser-local prototype · <a href="welcome.html">Learner landing page</a> · <a href="../../index.html">Main website</a></footer>
+  </div></div>
+</body></html>

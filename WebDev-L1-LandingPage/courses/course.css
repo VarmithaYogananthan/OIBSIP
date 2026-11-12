@@ -1,0 +1,49 @@
+/* EduSpark course details — distinct static HTML destinations for landing-page courses */
+:root{--ink:#14214f;--muted:#63738e;--line:#dfe5f6;--blue:#3659ed;--violet:#8346e4;--light:#f5f7ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:105px}
+body{margin:0;background:radial-gradient(circle at 92% 11%,#ece6ff,transparent 32%),linear-gradient(#f7f9ff,#fff 500px);color:var(--ink);font:16px/1.65 "Segoe UI",Arial,sans-serif}
+a{color:inherit;text-decoration:none}button,input{font:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid #8c5ee5;outline-offset:4px}
+.container{width:min(1120px,calc(100% - 44px));margin:auto}
+.topbar{background:#fffffff2;position:sticky;z-index:5;top:0;border-bottom:1px solid #e1e6f6;backdrop-filter:blur(15px)}
+.nav{min-height:76px;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.logo{font-size:1.35rem;font-weight:900;letter-spacing:-.045em}.logo .mark{color:#6941dc}.logo span:last-child{color:#7450e1}
+.nav-links{display:flex;flex-wrap:wrap;align-items:center;gap:14px;font-size:.77rem;font-weight:750;color:#4e6090}
+.nav-links a:hover{color:#5641bd}
+.primary{background:linear-gradient(110deg,#365af3,#8544df);color:#fff;padding:13px 19px;border-radius:11px;display:inline-flex;gap:10px;align-items:center;justify-content:center;font-size:.83rem;font-weight:800;border:1px solid transparent;box-shadow:0 10px 25px #583ccb25}
+.primary:hover{filter:brightness(1.09);transform:translateY(-2px)}
+.outline{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border:1px solid #b7bce9;border-radius:11px;color:#4e40ad;font-weight:750;font-size:.83rem;background:#fff}
+.outline:hover{background:#f0edff}
+.hero{padding:76px 0 68px}.crumbs{font-size:.72rem;color:#7381a0;margin-bottom:22px}.crumbs a{text-decoration:underline;text-underline-offset:4px}
+.kicker{font-size:.71rem;color:#7450d2;letter-spacing:.15em;font-weight:900;text-transform:uppercase}
+.hero-grid{display:grid;grid-template-columns:1.13fr .87fr;gap:45px;align-items:center}
+h1{font-size:clamp(2.7rem,5vw,4.7rem);line-height:1.08;letter-spacing:-.055em;margin:18px 0 22px}
+h1 em{font-style:normal;color:#6749d8}.lead{max-width:650px;font-size:1.04rem;color:#536683}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 27px}.badge{background:#fff;border:1px solid #d8ddf4;color:#47598b;border-radius:99px;font-weight:750;font-size:.73rem;padding:7px 12px}
+.actions{display:flex;flex-wrap:wrap;gap:11px}
+.visual{border-radius:30px;min-height:350px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px;background:radial-gradient(circle at 75% 6%,#c5a2ff 0,transparent 50%),linear-gradient(130deg,#3051d6,#7047c7);box-shadow:0 28px 60px #373a9d28;color:white;text-align:center}
+.visual:after{content:"";position:absolute;inset:14px;border:1px solid #ffffff40;border-radius:24px;pointer-events:none}
+.visual-icon{font-size:6rem;line-height:1.3;text-shadow:0 15px 28px #1e2a8130}
+.visual strong{font-size:1.3rem;margin-top:15px}.visual small{opacity:.85;font-size:.72rem;letter-spacing:.11em}
+.visual.design{background:radial-gradient(circle at 75% 6%,#f1aee6,transparent 55%),linear-gradient(130deg,#603cbd,#c057b9)}
+.visual.python{background:radial-gradient(circle at 78% 10%,#7fd6ed,transparent 56%),linear-gradient(130deg,#1d5695,#3267b8)}
+.section{padding:52px 0}h2{font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.2;letter-spacing:-.035em;margin:8px 0 14px}
+.section-intro{color:#64728f;max-width:650px;margin-bottom:30px}
+.outcome-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px 24px;box-shadow:0 12px 30px #2f41800a}
+.tile .number{font-size:.66rem;font-weight:850;color:#7651cc;letter-spacing:.12em}
+.tile h3{font-size:1.07rem;color:#21356b;margin:16px 0 9px}.tile p{font-size:.83rem;color:#61718f;margin:0}
+.syllabus{background:linear-gradient(135deg,#f1f2ff,#f5faff);border-block:1px solid #e0e6f6}
+.syllabus-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:70px;align-items:start}
+.syllabus .info-card{padding:28px 30px;border:1px solid #d8def6;background:#fff;border-radius:19px}
+.module{display:flex;gap:16px;align-items:start;padding:18px 0;border-bottom:1px solid #e1e5f2}.module:first-child{padding-top:0}.module:last-child{border-bottom:0;padding-bottom:0}
+.module .n{display:grid;place-items:center;width:40px;height:40px;flex-shrink:0;border-radius:12px;background:#eef0ff;color:#5657bc;font-size:.75rem;font-weight:850}
+.module h3{font-size:1rem;margin:0 0 6px}.module p{margin:0;color:#66758d;font-size:.79rem}
+.capstone{margin-top:25px;padding:24px;border:1px solid #dfdef2;background:#fff;border-radius:17px}
+.capstone h3{margin:5px 0 7px}.capstone p{color:#62728c;font-size:.85rem}
+.cta-panel{margin:30px 0 75px;padding:37px 42px;background:linear-gradient(110deg,#2e3eae,#6c42c6);border-radius:24px;display:flex;align-items:center;justify-content:space-between;gap:25px;color:#fff}
+.cta-panel h2{color:white;margin:8px 0 10px}.cta-panel p{color:#dfe3ff;font-size:.86rem;max-width:600px}.cta-panel .primary{background:white;color:#4253b5;box-shadow:none;flex-shrink:0}
+footer{padding:26px 0;background:#131c45;color:#cbd4fc;font-size:.73rem}footer .container{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:920px){.hero-grid,.syllabus-grid{grid-template-columns:1fr;gap:30px}.visual{min-height:255px}.hero{padding:46px 0}.outcome-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:610px){.container{width:calc(100% - 32px)}.nav{flex-wrap:wrap;padding:12px 0}.nav-links{gap:12px}.nav .primary{padding:8px 12px}.hero{padding:35px 0}.outcome-grid{grid-template-columns:1fr}.visual{min-height:230px}.visual-icon{font-size:4.4rem}.section{padding:42px 0}.syllabus .info-card{padding:22px}.cta-panel{padding:28px 25px;align-items:start;flex-direction:column;margin-bottom:45px}.cta-panel .primary{flex-shrink:1}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
