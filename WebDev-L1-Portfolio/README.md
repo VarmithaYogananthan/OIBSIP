@@ -92,4 +92,4 @@ The previous SYNTIVO project is now described as REQVIORA (formerly SYNTIVO) to 
 
 A one-page public-safe PDF is included at `assets/Varmitha_Resume_Public.pdf`. It uses verified details available in the existing user-provided CV and project portfolio, excludes residential address/marital status, and is a **public profile document**, not the unredacted original CV. The hero action downloads it as `Varmitha_Yogananthan_Resume.pdf`; the Resume section also has PDF preview and download links.
 
-Run the updated browser test against a local server to verify the PDF response begins with `%PDF-`, the download completes, and the rest of the portfolio remains responsive. The PDF stream length/xref/object offsets have been checked, but latest Chromium/PDF layout verification may still be pending.
+The updated Chromium browser test (GitHub Actions 43176029060) confirmed an HTTP PDF response starting with `%PDF-` and exercised the actual download. PDF xref offsets/stream length also passed programmatic checks. Final human PDF visual review is still recommended.
