@@ -91,3 +91,19 @@ The landing page links to both apps via the hero and portal cards. This extra de
 ### Separate app test procedure
 
 From the repository root, start a local HTTP server (`python -m http.server 8000`), then run `python tests/eduspark-apps.py --base-url http://127.0.0.1:8000 --chromium /usr/bin/chromium` in an environment with Python Playwright and Chromium. The new app test has been added to source control; **its Chromium result is not yet recorded**. Existing landing-page screenshots and prior general tests should not be represented as full app validation until rerun.
+
+## Landing-page routing fix — course and role destinations
+
+The existing three course cards are now fully clickable on their artwork, title and Explore link and point to dedicated static course details:
+
+| Course | Details page |
+|---|---|
+| Web Development | `courses/web-development.html` |
+| UI/UX Design | `courses/ui-ux-design.html` |
+| Python Programming | `courses/python-programming.html` |
+
+The secondary **See learning journey** links still scroll to the existing example-path sections. Every details page includes an overview, four modules, outcomes, mini project and a linked Learner App course screen.
+
+The **Open Learner App** / **Open Admin Demo** buttons and portal cards route to `apps/user/welcome.html` and `apps/admin/welcome.html`, respectively. These are fully separate welcome/landing experiences with direct CTA links to their respective dashboards. Demo course browsing and admin data remain browser-local, not authenticated.
+
+The new cross-app test cases in `tests/eduspark-apps.py` check course-page navigation, role welcome pages, learner catalog detail deep links, reload/back, and responsiveness. Execution still required before these routes are claimed as Chromium-tested.
