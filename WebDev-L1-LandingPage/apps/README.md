@@ -55,3 +55,16 @@ python tests/eduspark-apps.py --base-url http://127.0.0.1:8000 --chromium /usr/b
 The test covers signup demo, course search and filters, join/lesson progress, admin learner metrics, course creation/edit/visibility/deletion, announcement sync, reports and CSV, responsive widths and reset. **Test script added; it must be executed in a local Chromium/Playwright environment to confirm runtime behavior.** The earlier general `TESTING.md` reports were recorded before adding these two web apps.
 
 All landing-page course information remains illustrative; this is not a real educational service.
+
+## Dedicated role landing pages and course details (navigation update)
+
+Two **separate role-specific landing pages** are now linked from the main EduSpark website:
+
+- Learner landing: `apps/user/welcome.html` — hero, capabilities, three-step journey and **Enter Learner Dashboard** CTA.
+- Admin landing: `apps/admin/welcome.html` — management overview, capabilities, warning about public demo access and **Enter Admin Dashboard** CTA.
+
+The existing dashboard entry points `apps/user/index.html` and `apps/admin/index.html` remain intact. The main landing links to each welcome page first, rather than sending visitors directly to the dashboard.
+
+The public landing course cards have **three dedicated static HTML detail pages** under `courses/` (Web Development, UI/UX, Python), each with summary, outcomes, four example modules, capstone and a path to the learner app's matching course screen. Inside the Learner dashboard, **every catalog course**, including admin-added courses, has a clickable cover/title/**View course details** action, a separate course-detail view with module listing, and a deep URL `index.html#course/<course-id>` that survives reload and can be linked directly. Lesson completion and enrollment remain browser-local.
+
+**Verification:** HTML link targets, element IDs, script syntax, isolated navigation/data behavior and route handlers were checked while editing. Full Chromium tests for these newly added welcome/course views have **not yet been run**; `tests/eduspark-apps.py` now includes their navigation and 7-width checks. Prior screenshots may not show these new pages.
