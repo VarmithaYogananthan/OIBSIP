@@ -1,0 +1,58 @@
+name: Verify OIBSIP Level 1
+on:
+  push:
+    branches: [feat/level-1-web-development, main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  level1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright + Chromium
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Check calculator logic
+        run: node --test tests/converter.test.cjs
+      - name: Run full Level 1 Chromium verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m http.server 8000 --bind 127.0.0.1 > /tmp/oibsip-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for i in {1..35}; do
+            if curl -fsS http://127.0.0.1:8000/WebDev-L1-LandingPage/ > /dev/null; then break; fi
+            sleep 1
+          done
+          BROWSER_PATH="$(python -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')"
+          python tests/browser-check.py --base-url http://127.0.0.1:8000 --chromium "$BROWSER_PATH"
+          python tests/feature-check.py --base-url http://127.0.0.1:8000 --chromium "$BROWSER_PATH"
+          python tests/eduspark-apps.py --base-url http://127.0.0.1:8000 --chromium "$BROWSER_PATH"
+      - name: Upload desktop and mobile screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: level1-six-screenshots
+          path: |
+            WebDev-L1-LandingPage/screenshots/*.png
+            WebDev-L1-Portfolio/screenshots/*.png
+            WebDev-L1-TemperatureConverter/screenshots/*.png
+          if-no-files-found: ignore
