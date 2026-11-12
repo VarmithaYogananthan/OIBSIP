@@ -52,7 +52,7 @@ Task 1 EduSpark now has HTML/CSS-only course category filters, expandable course
 
 Task 1 now includes two extra independent browser-local apps: [Learner demo](WebDev-L1-LandingPage/apps/user/) and [Admin demo](WebDev-L1-LandingPage/apps/admin/), linked directly from the existing EduSpark landing page. The learner demo includes catalog, lesson checklists and progress; the admin demo includes course CRUD, local learner metrics, announcements and CSV reports. The original internship landing page remains HTML/CSS-only, and the new JavaScript runs only in the demo web apps.
 
-These are frontend demonstration interfaces: no secure authentication, production admin access control, live registration, backend, shared database or cross-device synchronization. Use a local static server, and do not enter sensitive information. See [app documentation](WebDev-L1-LandingPage/apps/README.md) and the new `tests/eduspark-apps.py` browser workflow script. Its runtime test results remain pending.
+These are frontend demonstration interfaces: no secure authentication, production admin access control, live registration, backend, shared database or cross-device synchronization. Use a local static server, and do not enter sensitive information. See [app documentation](WebDev-L1-LandingPage/apps/README.md) and the new `tests/eduspark-apps.py` browser workflow script. The new separate-app suite completed 16 successful browser scenario groups in GitHub Actions run 43176029060.
 
 ## EduSpark routing and dual landing-page enhancement
 
@@ -60,4 +60,8 @@ The public EduSpark landing page now opens distinct static pages for each featur
 
 The EduSpark role buttons now open the **separate Learner landing** (`WebDev-L1-LandingPage/apps/user/welcome.html`) and **separate Admin landing** (`WebDev-L1-LandingPage/apps/admin/welcome.html`) before their respective dashboards. No real secure role login is implied. Both apps remain a frontend-only shared-browser demo. The original HTML/CSS landing-page scope is preserved.
 
-Additional Playwright navigation and responsive tests have been added in `tests/eduspark-apps.py`; the new routes have not yet had a recorded complete browser execution. Re-run tests and regenerate screenshots after pulling these commits.
+Additional Playwright navigation and responsive tests have been added in `tests/eduspark-apps.py`; the new routes completed 16 passing Chromium scenario groups in GitHub Actions run 43176029060. New screenshots are available from its artifact; rerun checks on later commits.
+
+## GitHub Pages entry
+
+The root [`index.html`](index.html) is a lightweight project hub linking all three Level 1 sites. After the reviewed PR is merged to `main`, GitHub Pages can serve the root and task folders from the same deployment. Hosting is not enabled automatically by this repository; follow GitHub Pages settings before sharing any live URL.
