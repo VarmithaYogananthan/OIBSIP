@@ -5,7 +5,7 @@
 <script src="../store.js" defer></script><script src="app.js" defer></script></head>
 <body><a class="skip" href="#main-content">Skip to workspace</a>
 <div class="shell">
-  <aside class="sidebar"><a class="brand" href="../../index.html"><span class="brand-mark">✧</span><span>Edu<b>Spark</b></span></a><div class="sidebar-label">Learner workspace</div>
+  <aside class="sidebar"><a class="brand" href="welcome.html"><span class="brand-mark">✧</span><span>Edu<b>Spark</b></span></a><div class="sidebar-label">Learner workspace</div>
     <nav class="side-nav" aria-label="Learner navigation">
       <button type="button" class="active" data-view="dashboard" aria-current="page"><span class="nav-icon">▦</span> Overview</button>
       <button type="button" data-view="catalog"><span class="nav-icon">◈</span> Explore courses</button>
@@ -14,7 +14,7 @@
       <button type="button" data-view="profile"><span class="nav-icon">♙</span> My profile</button>
     </nav>
     <div class="sidebar-bottom"><div class="demo-mini"><strong>Browser-local demo</strong><div>Not real student accounts. Your courses and progress stay in this browser.</div></div>
-      <a href="../../index.html">← EduSpark landing page</a><a href="../admin/">Switch to Admin Demo ↗</a></div>
+      <a href="welcome.html">← Learner landing page</a><a href="../../index.html">EduSpark main website ↗</a><a href="../admin/welcome.html">Admin landing ↗</a></div>
   </aside>
   <div class="workspace">
     <header class="topbar"><div class="breadcrumb">EduSpark / <strong id="page-label">Overview</strong></div><div class="top-actions"><span class="mode-pill">● Learner demo</span><span class="user-chip" id="top-name">Guest learner</span><span class="avatar" id="avatar-label">G</span></div></header>
@@ -44,6 +44,12 @@
         <p id="catalog-count" style="font-size:.76rem;margin-bottom:14px"></p><div class="course-grid" id="catalog-courses"></div>
         <div id="catalog-empty" class="empty" hidden>No matching courses. Clear your filters to see all available courses.</div>
       </section>
+      <section class="view" id="view-course" aria-labelledby="course-detail-title">
+        <div class="page-heading"><div><span class="kicker">DETAILED COURSE VIEW</span><h1 id="course-detail-title">Course details</h1><p id="course-detail-subtitle">Explore modules before beginning a learning journey.</p></div><button type="button" class="btn secondary" id="course-back">← Back to courses</button></div>
+        <div class="course-detail-hero"><div><span class="course-detail-chip" id="course-detail-category">Course category</span><h2 id="course-detail-heading">Discover your next skill.</h2><p id="course-detail-description"></p><div class="course-detail-meta"><span id="course-detail-level">Beginner</span><span id="course-detail-duration">4 weeks</span><span id="course-detail-count">4 lessons</span></div></div><div class="course-detail-icon" id="course-detail-icon" aria-hidden="true">✦</div></div>
+        <div class="course-detail-layout"><div class="panel"><span class="kicker">WHAT YOU'LL LEARN</span><h2 style="margin-bottom:17px">Course curriculum</h2><p style="margin-bottom:19px">Each module forms one step in a practical learning path. Join the demo course to track lesson completion.</p><ol class="course-detail-modules" id="course-detail-modules"></ol><div class="form-actions" id="course-detail-actions"></div></div>
+          <aside class="panel course-detail-aside"><span class="kicker">YOUR NEXT STEP</span><h2>Start your journey</h2><p style="margin:13px 0 17px">Explore the course details, join with your browser-local demo learner profile and follow your lesson checklist.</p><div id="course-detail-enrollment"></div><p class="form-note">No production signup, certification, payment or live classes are involved.</p><div id="course-static-link" style="margin-top:18px"></div></aside></div>
+      </section>
       <section class="view" id="view-learning" aria-labelledby="learning-title">
         <div class="page-heading"><div><span class="kicker">YOUR GROWTH</span><h1 id="learning-title">My learning</h1><p>Choose a joined course and check off lessons as you complete them.</p></div><button type="button" class="btn secondary" data-go="catalog">Find another course →</button></div>
         <div id="my-courses" class="course-grid"></div>
@@ -66,6 +72,6 @@
         </div>
       </section>
       <span class="status" id="global-status" role="status" aria-live="polite"></span>
-    </main><footer class="footer">EduSpark Learner Preview · Browser-local prototype · <a href="../../index.html">Back to landing page</a></footer>
+    </main><footer class="footer">EduSpark Learner Preview · Browser-local prototype · <a href="welcome.html">Learner landing page</a> · <a href="../../index.html">Main website</a></footer>
   </div></div>
 </body></html>
