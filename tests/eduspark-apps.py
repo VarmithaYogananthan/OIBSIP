@@ -26,6 +26,19 @@ with sync_playwright() as pw:
     # Main landing cards must navigate to three distinct course pages.
     main_landing = context.new_page()
     main_landing.on("pageerror", lambda err: errors.append(str(err)))
+    # Public GitHub Pages landing/index hub should open the three canonical tasks.
+    main_landing.goto(base + "/")
+    for folder in ("WebDev-L1-LandingPage", "WebDev-L1-Portfolio", "WebDev-L1-TemperatureConverter"):
+        link = main_landing.locator(f'a[href="{folder}/"]')
+        assert link.count() == 1
+        assert main_landing.request.get(base + "/" + folder + "/").ok
+    for width in (320, 375, 390, 768, 1024, 1440, 1920):
+        main_landing.set_viewport_size({"width": width, "height": 880})
+        assert not main_landing.evaluate("document.documentElement.scrollWidth > innerWidth"), (
+            "Level 1 project hub overflow", width
+        )
+    main_landing.set_viewport_size({"width": 1440, "height": 900})
+    checks.append("Root project hub links all three tasks and fits seven viewport widths")
     main_landing.goto(landing_url)
     public_courses = [
         ("web", "web-development.html", "Web Development"),
