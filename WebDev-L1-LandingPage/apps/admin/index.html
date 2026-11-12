@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#121c46"><meta name="description" content="EduSpark admin demo with course management, learner overview, announcements and reports. Browser-local concept, not a secure production admin.">
+<title>EduSpark — Admin Workspace (Demo)</title><link rel="stylesheet" href="../app.css">
+<script src="../store.js" defer></script><script src="app.js" defer></script></head>
+<body><a class="skip" href="#main-content">Skip to admin workspace</a>
+<div class="shell">
+  <aside class="sidebar">
+    <a class="brand" href="../../index.html"><span class="brand-mark">✧</span><span>Edu<b>Spark</b></span></a><div class="sidebar-label">Admin workspace</div>
+    <nav class="side-nav" aria-label="Admin navigation">
+      <button type="button" class="active" data-view="dashboard" aria-current="page"><span class="nav-icon">▦</span> Dashboard</button>
+      <button type="button" data-view="courses"><span class="nav-icon">◈</span> Manage courses</button>
+      <button type="button" data-view="learners"><span class="nav-icon">♙</span> Learners</button>
+      <button type="button" data-view="announcements"><span class="nav-icon">✉</span> Announcements</button>
+      <button type="button" data-view="reports"><span class="nav-icon">▥</span> Reports</button>
+      <button type="button" data-view="settings"><span class="nav-icon">⚙</span> Demo settings</button>
+    </nav>
+    <div class="sidebar-bottom"><div class="demo-mini"><strong>Public Admin Prototype</strong><div>No password or permission enforcement. Never enter real learner data. Changes apply only in this browser.</div></div>
+      <a href="../../index.html">← EduSpark landing page</a><a href="../user/">Open Learner Demo ↗</a>
+    </div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div class="breadcrumb">EduSpark / Admin / <strong id="page-label">Dashboard</strong></div><div class="top-actions"><span class="mode-pill">◆ Public admin demo</span><span class="user-chip">Demo Administrator</span><span class="avatar">A</span></div></header>
+    <main class="content" id="main-content">
+      <div class="notice"><strong>Prototype only:</strong> This administrative interface is publicly accessible for demonstration, not secured by a real backend. Course edits, learner changes and announcements are stored in your own browser, not shared with other devices.</div>
+      <section class="view active" id="view-dashboard" aria-labelledby="dashboard-title">
+        <div class="page-heading"><div><span class="kicker">PLATFORM OVERVIEW</span><h1 id="dashboard-title">Good morning, Administrator ✦</h1><p>A clear overview of your local EduSpark learning demo.</p></div><button class="btn" data-go="courses" type="button">Manage courses →</button></div>
+        <div class="hero"><div><span class="kicker">CREATE WHAT'S NEXT</span><h2>A learning space that<br>grows with curiosity.</h2><p>Add a course, review learner activity and publish helpful updates.</p></div><button type="button" class="btn" data-go="announcements">Post an announcement →</button></div>
+        <div class="stat-grid"><div class="stat"><div class="stat-top">Courses <span class="stat-icon">◈</span></div><strong id="admin-total-courses">0</strong><p>Total sample courses</p></div>
+          <div class="stat"><div class="stat-top">Learners <span class="stat-icon">♙</span></div><strong id="admin-learners">0</strong><p>Demo learner profiles</p></div>
+          <div class="stat"><div class="stat-top">Enrollments <span class="stat-icon">✓</span></div><strong id="admin-enrollments">0</strong><p>Course joins in this browser</p></div></div>
+        <div class="section-row"><div><h2>Latest course activity</h2><p>Review your course catalog and latest notices.</p></div><button type="button" data-go="courses" class="btn ghost">All courses →</button></div><div id="dashboard-courses" class="data-table-wrap"></div>
+        <div class="section-row"><div><h2>Recent announcements</h2></div><button type="button" data-go="announcements" class="btn ghost">Manage notices →</button></div><div id="dashboard-announcements" class="announcement-list"></div>
+      </section>
+      <section class="view" id="view-courses" aria-labelledby="courses-title">
+        <div class="page-heading"><div><span class="kicker">COURSE MANAGEMENT</span><h1 id="courses-title">Manage courses</h1><p>Create, edit, pause or remove demo courses. Changes appear immediately in the Learner Demo on the same browser.</p></div></div>
+        <div class="panel" style="margin-bottom:22px"><h2 id="course-form-title" style="margin-bottom:19px">Add a course</h2>
+          <form id="course-form"><input type="hidden" id="course-id"><div class="form-grid">
+            <div class="form-field"><label for="course-name">Course name</label><input class="input" id="course-name" minlength="3" maxlength="80" required placeholder="e.g. Frontend Web Essentials"></div>
+            <div class="form-field"><label for="course-category">Category</label><select class="input" id="course-category"><option>Web Development</option><option>Design</option><option>Programming</option><option>Data</option></select></div>
+            <div class="form-field"><label for="course-level">Level</label><select class="input" id="course-level"><option>Beginner</option><option>Intermediate</option></select></div>
+            <div class="form-field"><label for="course-duration">Duration</label><input class="input" id="course-duration" maxlength="35" required placeholder="e.g. 4 weeks"></div>
+            <div class="form-field full"><label for="course-description">Course description</label><textarea class="input" id="course-description" maxlength="260" required minlength="10" placeholder="What will a learner practise and build?"></textarea></div>
+            <div class="form-field full"><label for="course-lessons">Lesson titles — one per line</label><textarea class="input" id="course-lessons" required rows="5" maxlength="1200" placeholder="Getting started&#10;Practise the basics&#10;Build a small project"></textarea></div>
+          </div>
+          <div class="form-actions"><button type="submit" class="btn" id="save-course">Save course</button><button type="button" class="btn secondary" id="cancel-edit">Clear form</button></div>
+          <span class="status" id="course-status" role="status"></span>
+          </form></div>
+        <div class="section-row"><div><h2>Course catalog</h2><p id="course-count">0 courses</p></div></div><div id="course-table" class="data-table-wrap"></div>
+      </section>
+      <section class="view" id="view-learners" aria-labelledby="learners-title"><div class="page-heading"><div><span class="kicker">LEARNER MANAGEMENT</span><h1 id="learners-title">Learners</h1><p>Demo learner profiles created in this browser, with enrollment and progress summaries.</p></div></div>
+        <div id="learner-table" class="data-table-wrap"></div><p class="form-note">Removing a demo learner also removes their local enrollments. This is not an actual student database.</p>
+      </section>
+      <section class="view" id="view-announcements" aria-labelledby="announce-title">
+        <div class="page-heading"><div><span class="kicker">PLATFORM COMMUNICATION</span><h1 id="announce-title">Announcements</h1><p>Write a notice for the learner dashboard, locally in this browser.</p></div></div>
+        <div class="panel" style="margin-bottom:21px"><form id="announcement-form" class="form-grid">
+          <div class="form-field full"><label for="announcement-title">Announcement title</label><input id="announcement-title" class="input" required minlength="3" maxlength="90" placeholder="e.g. New learning path available"></div>
+          <div class="form-field full"><label for="announcement-message">Message</label><textarea id="announcement-message" class="input" required minlength="8" maxlength="300" placeholder="Share a short update with demo learners"></textarea></div>
+          <div class="form-field full"><button type="submit" class="btn" style="width:fit-content">Publish announcement →</button><span class="status" id="announcement-status" role="status"></span></div>
+        </form></div>
+        <div id="announcement-list" class="announcement-list"></div>
+      </section>
+      <section class="view" id="view-reports" aria-labelledby="reports-title">
+        <div class="page-heading"><div><span class="kicker">LOCAL INSIGHTS</span><h1 id="reports-title">Reports & insights</h1><p>Enrollment and completion metrics calculated from sample data in this browser.</p></div><button type="button" class="btn" id="download-report">Download CSV report ↓</button></div>
+        <div class="stat-grid"><div class="stat"><div class="stat-top">Active courses <span class="stat-icon">◉</span></div><strong id="report-active">0</strong><p>Visible to learners</p></div><div class="stat"><div class="stat-top">Completed lessons <span class="stat-icon">✓</span></div><strong id="report-lessons">0</strong><p>Across local enrollments</p></div><div class="stat"><div class="stat-top">Average completion <span class="stat-icon">↗</span></div><strong id="report-average">0%</strong><p>Across enrolled courses</p></div></div>
+        <div class="section-row"><div><h2>Course performance</h2><p>Enrollment counts and average progress.</p></div></div><div id="report-table" class="data-table-wrap"></div><span class="status" id="report-status" role="status"></span>
+      </section>
+      <section class="view" id="view-settings" aria-labelledby="settings-title"><div class="page-heading"><div><span class="kicker">DEMO CONFIGURATION</span><h1 id="settings-title">Settings & limitations</h1><p>Understand this prototype and safely reset all your local demo changes.</p></div></div>
+        <div class="panel" style="max-width:780px"><h2>Local demo storage</h2><p style="margin:12px 0 20px">This app has no server, real login, role-based access, email delivery, payments, shared course database or production security. Anyone with this link can open the Admin Demo; never enter confidential information.</p>
+          <h3>Reset sample data</h3><p>This restores the starting courses and welcome announcement, removes local demo learners, enrollments and added courses from this browser.</p>
+          <div class="form-actions"><button type="button" class="btn danger" id="reset-demo">Reset entire demo data</button><a href="../user/" class="btn secondary">Open learner demo ↗</a></div><span class="status" id="settings-status" role="status"></span>
+        </div>
+      </section>
+      <span class="status" id="global-status" role="status" aria-live="polite"></span>
+    </main><footer class="footer">EduSpark Admin Preview · Public, browser-local prototype · <a href="../../index.html">Back to landing page</a></footer>
+  </div>
+</div></body></html>
