@@ -95,7 +95,7 @@ with sync_playwright() as pw:
     checks.append("Learner App course detail deep links, reload and back navigation")
 
 
-    user.locator('[data-enroll="web"]').first.click()
+    user.locator('#catalog-courses [data-enroll="web"]').first.click()
     assert user.locator("#stat-enrolled").inner_text() == "1"
     assert user.locator('[data-open="web"]').first.count() >= 1
     user.locator('#my-courses [data-open="web"]').first.click()
