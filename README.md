@@ -47,3 +47,11 @@ Task 1 EduSpark now has HTML/CSS-only course category filters, expandable course
 Task 1 now includes two extra independent browser-local apps: [Learner demo](WebDev-L1-LandingPage/apps/user/) and [Admin demo](WebDev-L1-LandingPage/apps/admin/), linked directly from the existing EduSpark landing page. The learner demo includes catalog, lesson checklists and progress; the admin demo includes course CRUD, local learner metrics, announcements and CSV reports. The original internship landing page remains HTML/CSS-only, and the new JavaScript runs only in the demo web apps.
 
 These are frontend demonstration interfaces: no secure authentication, production admin access control, live registration, backend, shared database or cross-device synchronization. Use a local static server, and do not enter sensitive information. See [app documentation](WebDev-L1-LandingPage/apps/README.md) and the new `tests/eduspark-apps.py` browser workflow script. Its runtime test results remain pending.
+
+## EduSpark routing and dual landing-page enhancement
+
+The public EduSpark landing page now opens distinct static pages for each featured course: Web Development, UI/UX Design and Python Programming. Clicking a course image, heading, or Explore link navigates to a dedicated curriculum/details page. A corresponding details screen is also available for **all** Learner App catalog courses, including admin-created ones, via `#course/<id>`.
+
+The EduSpark role buttons now open the **separate Learner landing** (`WebDev-L1-LandingPage/apps/user/welcome.html`) and **separate Admin landing** (`WebDev-L1-LandingPage/apps/admin/welcome.html`) before their respective dashboards. No real secure role login is implied. Both apps remain a frontend-only shared-browser demo. The original HTML/CSS landing-page scope is preserved.
+
+Additional Playwright navigation and responsive tests have been added in `tests/eduspark-apps.py`; the new routes have not yet had a recorded complete browser execution. Re-run tests and regenerate screenshots after pulling these commits.
