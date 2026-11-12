@@ -256,3 +256,16 @@ button:disabled{opacity:.48!important;cursor:not-allowed!important;transform:non
 @media(max-width:900px){.history-heading{align-items:start}.advanced-controls{flex-wrap:wrap}}
 @media(max-width:650px){html{scroll-padding-top:123px}.navigation{flex-wrap:wrap;gap:9px;padding-block:10px}.brand{flex:1 1 44%;min-width:130px}.theme-toggle{padding:7px 9px;font-size:.67rem}.source-link{margin-left:auto;font-size:.67rem}.advanced-controls{flex-wrap:wrap}.advanced-controls .tool-button{width:100%}.precision-control p{max-width:none;margin:3px 0 0}.result-actions{align-items:start}.history-heading{flex-direction:column;align-items:stretch}.history-actions{gap:8px}.history-actions button{flex:1}.history-list li{padding:13px;align-items:start;flex-direction:column;gap:11px}.history-controls{flex-direction:row;justify-content:space-between;align-items:center;width:100%}}
 @media(prefers-reduced-motion:reduce){.climate-fill,.toggle-slider,.toggle-slider::before,.theme-toggle,.tool-button,.copy-scale,.history-controls button{transition:none!important}}
+
+/* Light-mode accents need their own contrast on pale glass surfaces. */
+.light-theme h1 > span {
+  background-image:linear-gradient(90deg,#93451d,#853b76 45%,#176584);
+}
+.light-theme .scale-strip > span:first-child { color:#93451d; }
+.light-theme .scale-strip > span:nth-of-type(2) { color:#853b76; }
+.light-theme .scale-strip > span:last-child { color:#176584; }
+.light-theme .scale-icon { color:#8c4a22; background:#ffebe0; border-color:#dfb89e; }
+.light-theme .fahrenheit-card .scale-icon { color:#813b75; background:#fae8f5; border-color:#d9b0d1; }
+.light-theme .kelvin-card .scale-icon { color:#1b6583; background:#e1f6fc; border-color:#9ecfdf; }
+.light-theme .warm-icon { color:#995322; }
+.light-theme .violet-icon { color:#6842a5; }

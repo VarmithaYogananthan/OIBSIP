@@ -454,7 +454,7 @@ body{background:#fff;color:var(--navy);font-family:Inter,"Segoe UI",Arial,sans-s
 #pace-30:focus-visible ~ .study-pace-controls label[for="pace-30"],
 #pace-60:focus-visible ~ .study-pace-controls label[for="pace-60"]{outline:3px solid #735ae8;outline-offset:4px}
 .course-outline{margin-top:17px;border-top:1px solid #e6e8f3;padding:15px 0 0}
-.course-outline summary{font-size:.75rem;color:#5738ad;font-weight:750;cursor:pointer;list-style:auto;padding:4px 0}
+.course-outline summary{font-size:.75rem;color:#5738ad;font-weight:750;cursor:pointer;list-style:disclosure-closed;padding:4px 0}
 .course-outline summary:focus-visible{outline:3px solid #735ae8;outline-offset:3px;border-radius:3px}
 .course-outline ul{color:#53627c;margin:12px 0;padding-left:18px;font-size:.76rem;line-height:1.8}
 .course-outline>a{display:inline-flex;font-weight:700;font-size:.75rem;color:#2656d9;padding:8px 0}
@@ -492,3 +492,5 @@ body{background:#fff;color:var(--navy);font-family:Inter,"Segoe UI",Arial,sans-s
 .hero-planner-link a span{display:inline-block;transition:transform .18s}
 .hero-planner-link a:hover span{transform:translateX(3px)}
 @media(prefers-reduced-motion:reduce){.hero-planner-link a span{transition:none}}
+
+.course-outline[open] > summary { list-style-type:disclosure-open; }

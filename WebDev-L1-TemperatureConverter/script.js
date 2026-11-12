@@ -212,6 +212,12 @@ form.addEventListener("reset", function() {
   document.querySelector("#input-symbol").textContent = "°C";
   clearResults();
   input.focus();
+  // Native form defaults are restored after the reset event listeners finish.
+  // Reconcile dependent UI only once those defaults have taken effect.
+  setTimeout(function() {
+    updateTargetHighlight();
+    renderHistory();
+  }, 0);
 });
 
 document.querySelectorAll(".sample-row button").forEach(function(button) {
@@ -249,6 +255,7 @@ document.querySelector("#swap-units").addEventListener("click", function() {
 });
 
 function fallbackCopy(text) {
+  const previousFocus = document.activeElement;
   const helper = document.createElement("textarea");
   helper.value = text;
   helper.setAttribute("readonly", "");
@@ -259,6 +266,7 @@ function fallbackCopy(text) {
   let ok = false;
   try { ok = document.execCommand("copy"); } catch (failure) { ok = false; }
   helper.remove();
+  if (previousFocus instanceof HTMLElement) previousFocus.focus({ preventScroll: true });
   return ok;
 }
 async function copyText(text, successMessage) {

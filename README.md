@@ -32,7 +32,7 @@ node --test tests/converter.test.cjs
 
 ## Content and remaining review
 
-The portfolio uses Varmitha Yogananthan’s verified source-portfolio details and original portrait, with provenance in its README. Contact uses the supplied email rather than a form. EduSpark is a fictional education-platform concept; its contact field remains an explicit placeholder. TempConvert uses the Climate Glass Premium theme and retains its tested conversion logic.
+The portfolio uses Varmitha Yogananthan’s verified source-portfolio details and original portrait, with provenance in its README. Contact uses the supplied email rather than a form. EduSpark is a fictional education-platform concept; its contact link is for project enquiries rather than live course support. TempConvert uses the Climate Glass Premium theme and retains its tested conversion logic.
 
 ## Repository workflow
 
@@ -40,4 +40,4 @@ Work is submitted from `feat/level-1-web-development` into `main` for review. Th
 
 ## November 2026 — feature-rich enhancement in review
 
-Task 1 EduSpark now has HTML/CSS-only course category filters, expandable course syllabi, a three-pace learning planner, FAQs and a verified project-enquiry email link. Task 3 TempConvert now includes optional live mode, source/target swapping, result copying, adjustable precision, local history, CSV export, theme switching and a visual temperature indicator. The pure conversion engine and Task 2 portfolio remain unchanged. These additions are on `feat/level-1-web-development` in PR #1; not merged. Older screenshots are not yet refreshed for these features, and the new end-to-end browser tests must be run before final submission.
+Task 1 EduSpark now has HTML/CSS-only course category filters, expandable course syllabi, a three-pace learning planner, FAQs and a verified project-enquiry email link. Task 3 TempConvert now includes optional live mode, source/target swapping, result copying, adjustable precision, local history, CSV export, theme switching and a visual temperature indicator. The pure conversion engine and Task 2 portfolio remain unchanged. These additions are on `feat/level-1-web-development` in PR #1; not merged. The full browser and extended regression suites have now passed; all six real desktop/mobile screenshots are refreshed. See TESTING.md for the 12 November 2026 results and remaining limits.

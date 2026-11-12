@@ -1,5 +1,5 @@
 from pathlib import Path
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 import argparse, json, math, urllib.request
 parser=argparse.ArgumentParser(description='Optional full browser verification; run a static server first.')
 parser.add_argument('--base-url',default='http://127.0.0.1:8000/')
@@ -11,10 +11,15 @@ FOLDERS=['WebDev-L1-LandingPage','WebDev-L1-Portfolio','WebDev-L1-TemperatureCon
 WIDTHS=[320,375,390,768,1024,1440,1920]
 report={'layout_checks':0,'anchor_clicks':0,'local_link_clicks':0,'screenshots':0,'external_urls':{},'valid_cases':0,'invalid_cases':0,'example_checks':0,'feature_checks':0,'errors':[]}
 external=set()
+def set_live(page, enabled):
+    if page.locator('#live-mode').is_checked() != enabled:
+        page.locator('label[for="live-mode"]').click()
+    assert page.locator('#live-mode').is_checked() == enabled
+
 with sync_playwright() as pw:
  browser=pw.chromium.launch(executable_path=args.chromium,args=['--no-sandbox'])
  for folder in FOLDERS:
-  context=browser.new_context(java_script_enabled=folder.endswith('TemperatureConverter'),reduced_motion='reduce')
+  context=browser.new_context(timezone_id='Asia/Colombo', java_script_enabled=folder.endswith('TemperatureConverter'),reduced_motion='reduce')
   page=context.new_page()
   page.on('pageerror',lambda e:report['errors'].append(str(e)))
   def response(res):
@@ -106,7 +111,10 @@ with sync_playwright() as pw:
    assert page.evaluate('getComputedStyle(document.documentElement).scrollBehavior')=='auto'
    if width in [390,1440]:
     page.goto(url)
-    if folder.endswith('TemperatureConverter'):page.get_by_role('button',name='Mild day 25 °C').click()
+    if folder.endswith('TemperatureConverter'):
+     if page.locator('#clear-history').is_enabled(): page.locator('#clear-history').click()
+     for example in ['Freezing 0 °C', 'Boiling 100 °C', 'Mild day 25 °C']:
+      page.get_by_role('button',name=example,exact=True).click()
     page.evaluate("document.activeElement.blur(); window.scrollTo({top:0,behavior:'instant'})")
     assert abs(page.locator('header').bounding_box()['y'])<1
     page.screenshot(path=str(ROOT/folder/'screenshots'/('mobile.png' if width==390 else 'desktop.png')),full_page=True)
@@ -114,7 +122,7 @@ with sync_playwright() as pw:
    report['layout_checks']+=1
   context.close()
  # Focused converter behavior checks, including the supplied reference cases.
- context=browser.new_context(reduced_motion='reduce',accept_downloads=True,permissions=['clipboard-read','clipboard-write'])
+ context=browser.new_context(timezone_id='Asia/Colombo', reduced_motion='reduce',accept_downloads=True,permissions=['clipboard-read','clipboard-write'])
  page=context.new_page()
  page.set_viewport_size({'width':390,'height':844})
  page.goto(BASE+FOLDERS[2]+'/')
@@ -140,13 +148,13 @@ with sync_playwright() as pw:
  page.locator('#temperature').fill('25');page.locator('#temperature').press('Enter');page.locator('#temperature').fill('26');assert page.locator('#result-C').inner_text()=='—'
  # V2 converter: live preview, result focus/swap, precision, local history, export and theme.
  page.get_by_role('button',name='Reset',exact=True).click()
- page.locator('#live-mode').check()
+ set_live(page, True)
  page.locator('#temperature').fill('25')
  assert values()['F']==77
  page.locator('#temperature').fill('not-a-number')
  assert page.locator('#error').inner_text()
  assert page.locator('#result-C').inner_text()=='—'
- page.locator('#live-mode').uncheck()
+ set_live(page, False)
  report['feature_checks']+=3
  page.locator('#temperature').fill('25')
  page.select_option('#unit','C')
@@ -155,7 +163,7 @@ with sync_playwright() as pw:
  assert page.locator('.copy-scale:enabled').count()==3
  assert page.locator('#history-list li').count()>=1
  page.locator('#copy-all').click()
- assert 'copied' in page.locator('#copy-status').inner_text().lower()
+ expect(page.locator('#copy-status')).to_contain_text('copied')
  assert 'C:' in page.evaluate('navigator.clipboard.readText()')
  with page.expect_download() as download_info:
   page.locator('#export-history').click()
@@ -184,7 +192,7 @@ with sync_playwright() as pw:
  assert page.locator('#export-history').is_disabled()
  report['feature_checks']+=3
  # Normal motion: every site retains sticky navigation and scrollable targets.
- context=browser.new_context()
+ context=browser.new_context(timezone_id='Asia/Colombo', )
  page=context.new_page()
  page.set_viewport_size({'width':390,'height':844})
  for folder in FOLDERS[:2]:

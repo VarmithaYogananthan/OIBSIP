@@ -93,6 +93,6 @@ No intermediate rounding. Lower bounds: −273.15 °C, −459.67 °F, and 0 K. S
 node --test tests/converter.test.cjs
 ```
 
-## V2 verification required
+## V2 browser verification completed — 12 November 2026
 
-The earlier Chromium screenshots and `TESTING.md` results predate these V2 interactive controls. The new `tests/browser-check.py` contains checks for live mode, swap, precision, saved history, theme persistence, clipboard and CSV export. **These new browser checks have not been run in the connected GitHub editing environment.** Run them against a local server, review desktop/mobile layouts and regenerate both real screenshots prior to internship submission. Copy uses browser Clipboard APIs with a legacy fallback; restricted browsers may deny clipboard permission. CSV export needs normal browser download support.
+Live preview, all swap combinations, every copy action, actual CSV contents, all precision options, bounded/persistent history, theme persistence and storage/clipboard fallbacks passed real Chromium checks. Reset now reconciles focus/precision-dependent UI after native defaults, and fallback copying retains keyboard focus. Both screenshots show the current controls and actual conversion output. See [TESTING.md](../TESTING.md); reproduce with `tests/browser-check.py`, `tests/feature-check.py`, and the existing Node tests. Clipboard and download permissions remain browser-dependent; denied behavior was also tested.

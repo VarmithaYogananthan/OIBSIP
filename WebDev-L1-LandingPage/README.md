@@ -74,6 +74,6 @@ Chromium checks used a static local server. The managed environment blocks `file
 
 Review desktop/mobile screenshots and use the existing branch `feat/level-1-web-development` and [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) for internship review. Do not merge automatically.
 
-## V2 verification required
+## V2 browser verification completed — 12 November 2026
 
-The interactive feature additions (CSS course filters, syllabus panels, routine picker, FAQ, contact action) were checked structurally, but **the previous screenshots and historic browser-test counts predate these new features**. Re-run `tests/browser-check.py` against a local static HTTP server and recapture the actual screenshots for desktop/mobile before submitting. Task 1 deliberately remains HTML/CSS only. No real course enrollment or backend is represented.
+All four CSS course-filter options, three syllabus disclosures, three study routines, five FAQs, keyboard radio navigation, and CTA targets passed real Chromium testing. All seven required widths were exercised with JavaScript disabled; both real screenshots are refreshed. See [TESTING.md](../TESTING.md) and run `tests/browser-check.py` plus `tests/feature-check.py` from the repository root to reproduce. This remains an HTML/CSS concept without enrollment or a backend.
