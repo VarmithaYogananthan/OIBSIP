@@ -106,4 +106,4 @@ The secondary **See learning journey** links still scroll to the existing exampl
 
 The **Open Learner App** / **Open Admin Demo** buttons and portal cards route to `apps/user/welcome.html` and `apps/admin/welcome.html`, respectively. These are fully separate welcome/landing experiences with direct CTA links to their respective dashboards. Demo course browsing and admin data remain browser-local, not authenticated.
 
-The new cross-app test cases in `tests/eduspark-apps.py` check course-page navigation, role welcome pages, learner catalog detail deep links, reload/back, and responsiveness. Execution still required before these routes are claimed as Chromium-tested.
+The new cross-app test cases in `tests/eduspark-apps.py` check course-page navigation, role welcome pages, learner catalog detail deep links, reload/back, and responsiveness. These routes were browser-tested in 16 successful learner/admin scenario groups in GitHub Actions run 43176029060 (12 November 2026). The original HTML/CSS landing page remains without JavaScript.
