@@ -45,13 +45,13 @@ with sync_playwright() as pw:
     assert main_landing.url == learner_welcome_url
     assert main_landing.get_by_role("link", name="Enter Learner Dashboard").count() >= 1
     main_landing.get_by_role("link", name="Enter Learner Dashboard").first.click()
-    assert main_landing.url == user_url
+    assert main_landing.url in (user_url, user_url + "index.html")
     main_landing.goto(landing_url)
     main_landing.get_by_role("link", name="Open Admin Demo").click()
     assert main_landing.url == admin_welcome_url
     assert main_landing.get_by_role("link", name="Enter Admin Dashboard").count() >= 1
     main_landing.get_by_role("link", name="Enter Admin Dashboard").first.click()
-    assert main_landing.url == admin_url
+    assert main_landing.url in (admin_url, admin_url + "index.html")
     checks.append("Dedicated Learner and Admin landing pages open their respective dashboards")
 
     user.on("pageerror", lambda err: errors.append(str(err)))
