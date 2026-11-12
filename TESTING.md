@@ -1,10 +1,18 @@
-> **NEW ROUTING UPDATE — 12 November 2026:** The main EduSpark landing page now links all three featured course cards to their own static course detail pages and links each User/Admin button to a separate role landing page. Learner App catalog courses also have deep-linkable details screens. The `tests/eduspark-apps.py` suite was expanded to cover these routes, refresh/back behavior and 7 viewport widths. HTML tag/ID/anchor counts, JavaScript syntax and a simulated Learner deep-link/back-flow were checked without a browser. **Chromium Playwright verification for these new routes/screens has not yet been executed**, so older pass counts and screenshots below do not cover these changes.
+## GitHub Actions verification of final Level 1 scope (12 November 2026)
 
-> **NEW EduSpark learner/admin demo scope (12 November 2026):** Two additional browser-local frontend apps have been added under `WebDev-L1-LandingPage/apps/user/` and `apps/admin/`. Previous V2 browser-test results and six screenshots do not cover these new pages. An additional Playwright script, `tests/eduspark-apps.py`, now tests signup demo, catalog, lessons, admin CRUD, notices, cross-app sync, reports, CSV and responsive layouts, but **it has not been executed in this GitHub editing environment**. Run it against a local static server and record actual results before calling the new apps browser-verified. The original landing page itself remains HTML/CSS-only.
+**Successful CI job:** [Verify OIBSIP Level 1 — run 43176029060](https://github.com/VarmithaYogananthan/OIBSIP/actions/runs/43176029060), at code commit `3834628`.
+
+- **5 Node temperature converter tests passed (0 failed)**.
+- **21 full-layout checks passed** at 7 widths, 266 working internal anchor clicks, 154 local-link/download checks, 12 valid conversions, 12 invalid conversions, 35 converter examples, 37 additional feature checks, 6 screenshots generated as workflow artifacts.
+- **22 extended feature groups passed**, including clipboard, CSV, theme, precision, history, storage fallbacks and zero page errors.
+- **16 EduSpark learner/admin groups passed**, covering all static course detail pages, Learner/Admin landing pages, deep links, enrollment, progress, course management, learner metrics, notices, CSV and responsiveness.
+- A real public resume PDF at `WebDev-L1-Portfolio/assets/Varmitha_Resume_Public.pdf` was requested over HTTP and the `download` action was exercised by the browser test. The PDF xref offsets and stream length were also checked separately. Visual review of the PDF on the user's device is recommended.
+
+The workflow re-runs on subsequent commits. Verify the latest run is green before submission; new root-level project-index or documentation changes after the noted success may not have been exercised by that earlier run. The updated six screenshots generated during CI are available in its `level1-six-screenshots` artifact; they are not automatically pushed back to the repository.
 
 # OIBSIP — complete browser verification
 
-Verified **12 November 2026** on `feat/level-1-web-development`, after safely fast-forwarding the clean checkout to remote commit `5fc71c7`. These are results for the current interactive features, replacing the earlier V2 “not yet tested” notices. No features were removed.
+Previous baseline verified **12 November 2026** at commit `5fc71c7`. The newer GitHub Actions run at `3834628` verified the expanded project including EduSpark role-specific landing pages, separate course details, user/admin demos, real portfolio PDF download and the original converter. No functionality was removed.
 
 ## Reproduce
 
@@ -15,6 +23,7 @@ python3 -m http.server 8000
 # Second terminal:
 python3 tests/browser-check.py --base-url http://127.0.0.1:8000 --chromium /usr/bin/chromium
 python3 tests/feature-check.py --base-url http://127.0.0.1:8000 --chromium /usr/bin/chromium
+python3 tests/eduspark-apps.py --base-url http://127.0.0.1:8000 --chromium /usr/bin/chromium
 node --test tests/converter.test.cjs
 ```
 
@@ -25,7 +34,7 @@ The browser suites use a local static server and isolated browser contexts. Task
 | Suite | Result |
 | --- | --- |
 | Existing Node calculation suite | **5 passed, 0 failed**, including 45 round trips |
-| Existing full browser suite | **Passed**: 21 layout checks, 287 internal anchor clicks, 28 local project-link clicks, 12 valid conversions, 12 invalid conversions, 35 quick-example checks, 37 additional feature checks, 6 screenshot captures |
+| Existing full browser suite | **Passed**: 21 layout checks, 266 internal anchor clicks, 154 local project-link/download checks, 12 valid conversions, 12 invalid conversions, 35 quick-example checks, 37 additional feature checks, 6 screenshot captures |
 | New extended feature/regression suite | **22 scenario groups passed**; no console errors, uncaught page errors, or failed local asset responses |
 | External link checks | All **8 distinct GitHub URLs returned HTTP 200** |
 | JavaScript syntax / git whitespace checks | Passed |
