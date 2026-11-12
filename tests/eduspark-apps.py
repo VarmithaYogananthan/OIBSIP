@@ -98,7 +98,7 @@ with sync_playwright() as pw:
     user.locator('[data-enroll="web"]').first.click()
     assert user.locator("#stat-enrolled").inner_text() == "1"
     assert user.locator('[data-open="web"]').first.count() >= 1
-    user.locator('[data-open="web"]').first.click()
+    user.locator('#my-courses [data-open="web"]').first.click()
     assert user.locator("#lesson-detail").is_visible()
     user.locator('#lesson-list input[data-lesson="0"]').check()
     assert user.locator("#stat-lessons").inner_text() == "1"
