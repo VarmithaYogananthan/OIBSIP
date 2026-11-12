@@ -77,3 +77,17 @@ Review desktop/mobile screenshots and use the existing branch `feat/level-1-web-
 ## V2 browser verification completed — 12 November 2026
 
 All four CSS course-filter options, three syllabus disclosures, three study routines, five FAQs, keyboard radio navigation, and CTA targets passed real Chromium testing. All seven required widths were exercised with JavaScript disabled; both real screenshots are refreshed. See [TESTING.md](../TESTING.md) and run `tests/browser-check.py` plus `tests/feature-check.py` from the repository root to reproduce. This remains an HTML/CSS concept without enrollment or a backend.
+
+## Separate Learner + Admin Web App demos (12 November 2026)
+
+The original HTML/CSS-only Task 1 landing page is preserved. Two separately navigable interactive demonstration interfaces have been added under `apps/`:
+
+- **Learner demo:** `apps/user/` — learner demo profile, course browsing/search/filter, enrollment, lesson checklist progress, notices and profile editing.
+- **Admin demo:** `apps/admin/` — dashboards, course create/edit/visibility/delete, demo learner management, announcements, reports/CSV export and reset.
+- **Shared app files:** `apps/store.js` and `apps/app.css` implement a consistent learner/admin experience with browser-local persistence. No backend or real sign-in exists.
+
+The landing page links to both apps via the hero and portal cards. This extra demo functionality is separate from the original internship Task 1 requirement and uses JavaScript **inside the new apps only**. Full technical details, data safety limitations and instructions are in [apps/README.md](apps/README.md).
+
+### Separate app test procedure
+
+From the repository root, start a local HTTP server (`python -m http.server 8000`), then run `python tests/eduspark-apps.py --base-url http://127.0.0.1:8000 --chromium /usr/bin/chromium` in an environment with Python Playwright and Chromium. The new app test has been added to source control; **its Chromium result is not yet recorded**. Existing landing-page screenshots and prior general tests should not be represented as full app validation until rerun.
