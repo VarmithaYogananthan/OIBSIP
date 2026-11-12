@@ -521,3 +521,12 @@ body{background:#fff;color:var(--navy);font-family:Inter,"Segoe UI",Arial,sans-s
 @media(max-width:700px){.app-portal-grid{grid-template-columns:1fr}.portal-card{min-height:0;padding:25px}.hero-app-button{font-size:.73rem}.hero-app-actions{margin-top:15px}.hero-demo-caption{line-height:1.5}}
 @media(max-width:370px){.hero-app-actions{flex-direction:column;align-items:stretch}.hero-app-button{width:100%;justify-content:space-between}}
 @media(prefers-reduced-motion:reduce){.hero-app-button,.portal-cta{transition:none!important}}
+
+
+/* Each landing-page course image/title now links to its dedicated course page. */
+.course-cover-link{display:block;color:inherit;border-radius:18px 18px 0 0;overflow:hidden}
+.course-cover-link:hover .course-art{filter:brightness(1.045)}
+.course-cover-link:focus-visible{outline:3px solid #704ce3;outline-offset:-3px}
+.course-body h3 a{color:inherit;text-decoration:none}
+.course-body h3 a:hover{color:#6840d0;text-decoration:underline;text-underline-offset:4px}
+.course-link{cursor:pointer}
