@@ -316,3 +316,5 @@ footer { background:var(--dark); color:#cfb4c0; padding:40px 0 25px; }
 @media(max-width:950px){.resume-feature-grid{grid-template-columns:1fr;gap:24px}.resume-feature-action{max-width:640px}}
 @media(max-width:590px){.resume-feature-action{padding:19px}.resume-feature-grid{gap:27px}.resume-hero-link{padding:11px 13px}.hero-actions{flex-wrap:wrap;gap:12px}}
 @media(prefers-reduced-motion:reduce){.resume-hero-link{transition:none!important}}
+
+.contact-person{display:block;font-size:.89rem;font-weight:850;color:#ffe8ce;letter-spacing:.01em;margin:10px 0 7px}
