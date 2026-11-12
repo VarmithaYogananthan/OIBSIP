@@ -295,3 +295,24 @@ footer { background:var(--dark); color:#cfb4c0; padding:40px 0 25px; }
 @media(max-width:970px){.expanded-work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.expanded-work-grid{grid-template-columns:1fr}.expanded-work-grid .other-project{min-height:0;padding:22px}.source-work-head{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){.expanded-work-grid .other-project{transition:none}}
+
+
+/* Portfolio task requirement: real, privacy-conscious, downloadable PDF resume. */
+.resume-hero-link{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 18px;border:1px solid #e5bb84;color:#f5d7a9;border-radius:11px;font-size:.78rem;font-weight:850;background:#e5b07513;white-space:nowrap}
+.resume-hero-link:hover{background:#b43b5a35;border-color:#ffe0a1;color:#fff2d7}
+.resume-feature{background:linear-gradient(120deg,#270d1d,#4c1830);color:#fff9f4;border-top:1px solid #e2b48725;border-bottom:1px solid #e2b48725}
+.resume-feature-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(310px,.93fr);align-items:center;gap:52px}
+.resume-feature .eyebrow{color:#efbf88}
+.resume-feature h2{color:#fff5f1}
+.resume-feature h2 em{color:#f5bf94}
+.resume-feature-grid>div>p:not(.eyebrow){font-size:.85rem;line-height:1.7;color:#dcc6cc;max-width:590px;margin-top:19px}
+.resume-feature-action{background:linear-gradient(145deg,#ffffff16,#ffffff08);border:1px solid #e5b88f64;border-radius:20px;padding:25px;display:grid;grid-template-columns:56px minmax(0,1fr);align-items:center;gap:11px 15px;box-shadow:0 18px 42px #1206112e}
+.resume-file-mark{width:53px;height:62px;display:grid;place-items:center;background:#e6b88e;color:#3b1520;font-size:.72rem;font-weight:900;border-radius:9px;letter-spacing:.06em}
+.resume-feature-action h3{font-size:1.1rem;margin:0 0 7px;color:#fff5e7}
+.resume-feature-action p{font-size:.73rem;color:#dec8d0;margin:0}
+.resume-feature-action .button{grid-column:1/-1;justify-content:center;margin-top:8px;text-align:center}
+.resume-preview-link{grid-column:1/-1;justify-self:center;color:#f4d7b2;font-size:.75rem;font-weight:750;padding:7px;text-decoration:underline;text-underline-offset:4px}
+.resume-preview-link:hover{color:#fff}
+@media(max-width:950px){.resume-feature-grid{grid-template-columns:1fr;gap:24px}.resume-feature-action{max-width:640px}}
+@media(max-width:590px){.resume-feature-action{padding:19px}.resume-feature-grid{gap:27px}.resume-hero-link{padding:11px 13px}.hero-actions{flex-wrap:wrap;gap:12px}}
+@media(prefers-reduced-motion:reduce){.resume-hero-link{transition:none!important}}
