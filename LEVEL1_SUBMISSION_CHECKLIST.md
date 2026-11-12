@@ -58,14 +58,14 @@ The three original task pages are static and do not require installation. The ex
 
 ## Automated QA
 
-A GitHub Actions workflow, `.github/workflows/verify-oibsip-level1.yml`, is configured for pushes and PRs. It runs:
+A GitHub Actions workflow, `.github/workflows/verify-oibsip-level1.yml`, is configured for pushes and PRs. It mounts the checkout under `/OIBSIP/` and runs:
 
 ```sh
 node --test tests/converter.test.cjs
-python tests/browser-check.py --base-url http://127.0.0.1:8000 --chromium /path/to/chromium
-python tests/feature-check.py --base-url http://127.0.0.1:8000 --chromium /path/to/chromium
-python tests/eduspark-apps.py --base-url http://127.0.0.1:8000 --chromium /path/to/chromium
-python tests/submission-audit.py --base-url http://127.0.0.1:8000 --chromium /path/to/chromium
+python tests/browser-check.py --base-url http://127.0.0.1:8000/OIBSIP --chromium /path/to/chromium
+python tests/feature-check.py --base-url http://127.0.0.1:8000/OIBSIP --chromium /path/to/chromium
+python tests/eduspark-apps.py --base-url http://127.0.0.1:8000/OIBSIP --chromium /path/to/chromium
+python tests/submission-audit.py --base-url http://127.0.0.1:8000/OIBSIP --chromium /path/to/chromium
 ```
 
 The script collection checks responsive widths, real links/downloads, keyboard behavior, converter formulas and optional app workflows. **Always check the latest GitHub Actions job results before claiming the current commit passed full browser QA.** The final local audit includes the current resume, hub, course pages and role demos, including a local `/OIBSIP/` path. See TESTING.md for actual results; the workflow now repeats the repository-subpath audit.

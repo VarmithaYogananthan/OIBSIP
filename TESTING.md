@@ -25,6 +25,7 @@ Tests used system Chromium through Python Playwright and a static server mountin
 | `tests/feature-check.py` | **22 scenario groups passed**, including every filter/planner/FAQ option, clipboard contents/fallbacks, CSV contents, all swaps/precision settings, history and both themes |
 | `tests/eduspark-apps.py` | **17 scenario groups passed**, covering the root hub, course pages, separate role landings, learner/admin workflows and seven widths |
 | `tests/submission-audit.py` | **14 scenario groups passed**: 11 HTML routes, 77 viewport checks, 26 distinct local targets, 9 static course entries, 18 learner course entries, resume downloads and extended cross-app regressions; no application console errors, page errors or failed assets |
+| Precision text follow-up | **42 checks passed**: all 3 precision options at 7 widths in both themes, with selected text fitting the native control and expected rounded output; refreshed both converter captures |
 | Final external destinations | All **9 distinct HTTPS destinations in the HTML pages returned HTTP 200**, including stable `main` source URLs |
 | Syntax / whitespace checks | JavaScript syntax checks and `git diff --check` passed; resume PDF is classified binary to preserve its xref bytes |
 
@@ -86,6 +87,7 @@ Live preview does not save until Convert. All 9 source/target swap combinations,
 4. Corrected the one public-resume project-stack line against its linked public repository; preserved qualifications/layout and added binary PDF handling in `.gitattributes`.
 5. Corrected stale merged-PR, resume-required and unexecuted-test statements in the READMEs/checklist.
 6. Added the submission audit to CI and changed its static server to exercise `/OIBSIP/`. The browser PDF check verifies the actual preview URL rather than waiting for the built-in PDF viewer to emit an HTML load event.
+7. Gave the converter precision control sufficient width after final mobile screenshot review found its selected text clipped. All three options remain readable at the seven audited widths in both themes; calculations and stored values are unchanged.
 
 No completed page was redesigned. No course, planner, FAQ, portfolio project or converter feature was deleted.
 
