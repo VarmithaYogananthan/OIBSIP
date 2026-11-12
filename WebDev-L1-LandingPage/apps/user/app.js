@@ -21,7 +21,7 @@
     });
     $("#page-label").textContent=title[view];
     if(view!=="learning") selectedCourse=null;
-    if(view!=="course" && window.location.hash.startsWith("#course/")) window.history.replaceState(null,"","#"+view);
+    if(view!=="course" && window.location.hash!=="#"+view) window.history.replaceState(null,"","#"+view);
     if(view==="learning") renderLearning();
     window.scrollTo({top:0,behavior:"instant"});
   }
