@@ -45,7 +45,7 @@ Clone the existing repository and check out the review branch:
 ```sh
 git clone https://github.com/VarmithaYogananthan/OIBSIP.git
 cd OIBSIP
-git checkout feat/level-1-web-development
+git checkout main
 python3 -m http.server 8000
 ```
 
@@ -76,7 +76,7 @@ Chromium checks used a static local server. The managed environment blocks `file
 
 ## Submission
 
-Review desktop/mobile screenshots and use the existing branch `feat/level-1-web-development` and [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) for internship review. Do not merge automatically.
+The original [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) is merged into `main`. Final audit fixes are reviewed separately on `fix/level1-final-verification`; do not reopen PR #1 or merge follow-up changes automatically. Review the current screenshots and TESTING.md before internship submission.
 
 ## Formulas and accepted input
 

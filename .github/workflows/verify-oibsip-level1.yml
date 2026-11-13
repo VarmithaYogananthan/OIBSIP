@@ -35,17 +35,22 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -m http.server 8000 --bind 127.0.0.1 > /tmp/oibsip-server.log 2>&1 &
+          # Match GitHub Pages project hosting, including the /OIBSIP/ prefix.
+          mkdir -p "$RUNNER_TEMP/oibsip-pages"
+          ln -s "$GITHUB_WORKSPACE" "$RUNNER_TEMP/oibsip-pages/OIBSIP"
+          python -m http.server 8000 --bind 127.0.0.1 --directory "$RUNNER_TEMP/oibsip-pages" > /tmp/oibsip-server.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
           for i in {1..35}; do
-            if curl -fsS http://127.0.0.1:8000/WebDev-L1-LandingPage/ > /dev/null; then break; fi
+            if curl -fsS http://127.0.0.1:8000/OIBSIP/WebDev-L1-LandingPage/ > /dev/null; then break; fi
             sleep 1
           done
+          curl -fsS http://127.0.0.1:8000/OIBSIP/ > /dev/null
           BROWSER_PATH="$(python -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')"
-          python tests/browser-check.py --base-url http://127.0.0.1:8000 --chromium "$BROWSER_PATH"
-          python tests/feature-check.py --base-url http://127.0.0.1:8000 --chromium "$BROWSER_PATH"
-          python tests/eduspark-apps.py --base-url http://127.0.0.1:8000 --chromium "$BROWSER_PATH"
+          python tests/browser-check.py --base-url http://127.0.0.1:8000/OIBSIP --chromium "$BROWSER_PATH"
+          python tests/feature-check.py --base-url http://127.0.0.1:8000/OIBSIP --chromium "$BROWSER_PATH"
+          python tests/eduspark-apps.py --base-url http://127.0.0.1:8000/OIBSIP --chromium "$BROWSER_PATH"
+          python tests/submission-audit.py --base-url http://127.0.0.1:8000/OIBSIP --chromium "$BROWSER_PATH"
       - name: Upload desktop and mobile screenshots
         if: always()
         uses: actions/upload-artifact@v4

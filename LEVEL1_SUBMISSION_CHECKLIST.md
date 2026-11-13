@@ -1,6 +1,6 @@
 # Oasis Infobyte — Web Development & Designing · Level 1
 
-**Portfolio of three internship tasks (code deliverables).** The checklist below was cross-checked against the **Web Development & Designing Level 1 Task Cards** in the current Oasis Infobyte SIP task list supplied through the user's 6 November 2026 orientation email. The extra Learner/Admin demos and resume download go beyond the mandatory Level 1 card scope. Source branch: `feat/level-1-web-development`; original pull request: [#1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1). This document distinguishes finished code from actions that require a final human review, publishing or submission.
+**Portfolio of three internship tasks (code deliverables).** The checklist below was cross-checked against the **Web Development & Designing Level 1 Task Cards** in the current Oasis Infobyte SIP task list supplied through the user's 6 November 2026 orientation email. The extra Learner/Admin demos, separate course pages and resume download go beyond the mandatory Level 1 card scope. [Official task-card source](https://docs.google.com/document/d/1p4uB1o7RU3YqfUDFXRbL-YSMS-x6vM90LMo_IV7jgq0/edit). Original pull request [#1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) was merged into `main` on 12 November 2026. The follow-up audit uses `fix/level1-final-verification`. The official task list and orientation email were re-read during this audit. This document distinguishes finished code from actions that require a final human review, publishing or submission.
 
 ## Requirement-to-implementation checklist
 
@@ -11,7 +11,7 @@
 | HTML and CSS | Original public landing page is HTML/CSS-only (no scripts) | `WebDev-L1-LandingPage/index.html`, `styles.css` |
 | Attractive header, sections, columns and footer | EduSpark branding, hero, courses, features, learning journeys, planner, FAQ and footer | `index.html` |
 | All navigation and calls to action work | Section links, syllabus expansions and landing-page course links | `index.html` |
-| Each visible featured course opens full details | Distinct curriculum/outcome/capstone pages for Web, UI/UX and Python | `courses/*.html` |
+| Bonus: each visible featured course opens full details | Distinct curriculum/outcome/capstone pages for Web, UI/UX and Python | `courses/*.html` |
 | Mobile responsive | CSS media queries and keyboard-friendly controls | `styles.css` |
 
 **Bonus only, not a required real platform:** separate Learner and Admin demo landing pages and JavaScript-powered dashboards in `apps/`. They share browser-local data only, have no authentication, and do not constitute a real course provider or production admin portal.
@@ -58,16 +58,17 @@ The three original task pages are static and do not require installation. The ex
 
 ## Automated QA
 
-A GitHub Actions workflow, `.github/workflows/verify-oibsip-level1.yml`, is configured for pushes and PRs. It runs:
+A GitHub Actions workflow, `.github/workflows/verify-oibsip-level1.yml`, is configured for pushes and PRs. It mounts the checkout under `/OIBSIP/` and runs:
 
 ```sh
 node --test tests/converter.test.cjs
-python tests/browser-check.py --base-url http://127.0.0.1:8000 --chromium /path/to/chromium
-python tests/feature-check.py --base-url http://127.0.0.1:8000 --chromium /path/to/chromium
-python tests/eduspark-apps.py --base-url http://127.0.0.1:8000 --chromium /path/to/chromium
+python tests/browser-check.py --base-url http://127.0.0.1:8000/OIBSIP --chromium /path/to/chromium
+python tests/feature-check.py --base-url http://127.0.0.1:8000/OIBSIP --chromium /path/to/chromium
+python tests/eduspark-apps.py --base-url http://127.0.0.1:8000/OIBSIP --chromium /path/to/chromium
+python tests/submission-audit.py --base-url http://127.0.0.1:8000/OIBSIP --chromium /path/to/chromium
 ```
 
-The script collection checks responsive widths, real links/downloads, keyboard behavior, converter formulas and optional app workflows. **Always check the latest GitHub Actions job results before claiming the current commit passed full browser QA.** Earlier screenshot pass counts predate the newest resume and EduSpark role/course pages. Confirm screenshots for all pages you will showcase.
+The script collection checks responsive widths, real links/downloads, keyboard behavior, converter formulas and optional app workflows. **Always check the latest GitHub Actions job results before claiming the current commit passed full browser QA.** The final local audit includes the current resume, hub, course pages and role demos, including a local `/OIBSIP/` path. See TESTING.md for actual results; the workflow now repeats the repository-subpath audit.
 
 ## Demo walkthrough outlines
 
@@ -81,8 +82,9 @@ The script collection checks responsive widths, real links/downloads, keyboard b
 
 - [ ] Review all three final rendered sites and the public resume content.
 - [ ] Confirm all current CI test results are green; address any remaining failed checks.
-- [ ] Review and merge PR #1 into `main` when satisfied.
-- [ ] Enable/configure static hosting (for example, GitHub Pages) if a live demo URL is required. Do not invent live URLs.
+- [x] PR #1 is merged into `main`.
+- [ ] Review the new final-verification PR and merge only when satisfied; do not reopen PR #1.
+- [ ] Enable GitHub Pages from `main` / root if a live demo is required. Pages API and expected public URL returned 404 during the audit; follow the exact activation steps in README.md and verify deployment before sharing a URL.
 - [ ] Record demo walkthrough videos and follow the **specific instructions in your offer letter / task sheet** (including any LinkedIn/peer review requirements).
 - [ ] Use the official task submission form and links supplied to you by Oasis Infobyte. Submission has **not** been performed by this repository.
 
@@ -100,7 +102,7 @@ The assigned **Level 1** contains **all three** required tasks. The Task Card fe
 - [x] Footer with contact/social or project-source link.
 - [x] Consistent color palette and readable heading/body type sizes.
 - [x] Flex/Grid responsive layout, with intentional padding/box sizing.
-- [x] No element overlap in previously verified mobile/desktop browser widths.
+- [x] No document overflow or overlapping header targets in the seven tested viewport widths; course/dashboard layouts also checked.
 
 **Task 2 — Personal Portfolio (HTML5 + CSS3; JS optional).**
 - [x] Name, role and a real source-portfolio portrait.
@@ -135,3 +137,13 @@ These checkboxes describe the implementation; they are **not** substitutes for f
 - Recommended video filenames matching the orientation email's `YourName_TaskNumber` pattern: `Varmitha_Task1.mp4`, `Varmitha_Task2.mp4`, and `Varmitha_Task3.mp4`.
 
 The profile/video/peer evaluation/form items require user interaction and are **not marked complete** merely because the website code is pushed.
+
+## Final audit status — 12 November 2026
+
+- **Task 1: PASS** against the official static HTML/CSS task card; current course/filter/planner/FAQ routes verified. Optional Learner/Admin prototype workflows were tested separately.
+- **Task 2: PASS** against the official portfolio task card; all 11 project entries remain visible, the portrait is unchanged, and the public resume opens/downloads. The resume is a bonus, not an official mandatory task-card item.
+- **Task 3: PASS** against the official converter task card, including validation, all units and premium controls.
+- **Hosting: not live/verified.** Local `/OIBSIP/` routing is tested; manual Pages activation and a successful public URL check are still required.
+- **Submission: not performed.** Human review, demo videos, LinkedIn/peer steps and the official form remain the user's actions.
+
+These PASS results describe tested code compliance, not internship completion, certification or a submitted application. Full test evidence and limitations are in [TESTING.md](TESTING.md).

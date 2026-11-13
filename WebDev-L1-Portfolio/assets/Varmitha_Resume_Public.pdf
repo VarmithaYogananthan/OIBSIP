@@ -1,22 +1,50 @@
-%PDF-1.4
-%EduSpark portfolio document
+%PDF-1.3
+%‚„œ”
 1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
 endobj
 2 0 obj
-<< /Type /Pages /Count 1 /Kids [3 0 R] >>
+<<
+/Type /Pages
+/Count 1
+/Kids [ 3 0 R ]
+>>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/F1 4 0 R
+/F2 5 0 R
+>>
+>>
+/Contents 6 0 R
+>>
 endobj
 4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
 endobj
 5 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+>>
 endobj
 6 0 obj
-<< /Length 3869 >>
+<<
+/Length 3870
+>>
 stream
 0.994 0.985 0.976 rg 0 0 612 792 re f
 0.39 0.065 0.145 rg 0 768 612 24 re f
@@ -50,7 +78,7 @@ stream
 0.16 0.17 0.23 rg BT /F1 9.5 Tf 1 0 0 1 44 271 Tm (EduSpark  |  Responsive learning landing page, course exploration and UI/UX.) Tj ET
 0.16 0.17 0.23 rg BT /F1 9.5 Tf 1 0 0 1 44 254 Tm (TempConvert  |  Celsius, Fahrenheit and Kelvin converter with validation and tests.) Tj ET
 0.16 0.17 0.23 rg BT /F1 9.5 Tf 1 0 0 1 44 237 Tm (Personal Portfolio  |  Responsive project, skills and experience showcase.) Tj ET
-0.16 0.17 0.23 rg BT /F1 9.5 Tf 1 0 0 1 44 220 Tm (Spendly  |  Full-stack expense tracker using HTML, CSS, JS, PHP and MySQL.) Tj ET
+0.16 0.17 0.23 rg BT /F1 9.5 Tf 1 0 0 1 44 220 Tm (Spendly  |  Expense tracking using HTML, CSS, JavaScript and local storage.) Tj ET
 0.4 0.075 0.16 rg BT /F2 10.5 Tf 1 0 0 1 44 185 Tm (CORE STRENGTHS) Tj ET
 0.86 0.8 0.79 RG 0.65 w 44 177 m 568 177 l S
 0.16 0.17 0.23 rg BT /F1 9.4 Tf 1 0 0 1 44 163 Tm (Problem solving  |  Manual testing  |  Documentation  |  Communication  |  Teamwork) Tj ET
@@ -60,19 +88,23 @@ stream
 0.86 0.8 0.79 RG 0.65 w 44 61 m 568 61 l S
 0.41 0.43 0.48 rg BT /F1 8 Tf 1 0 0 1 44 43 Tm (Public portfolio resume - November 2026) Tj ET
 0.41 0.43 0.48 rg BT /F1 8 Tf 1 0 0 1 476 43 Tm (Page 1 of 1) Tj ET
+
 endstream
 endobj
 xref
 0 7
 0000000000 65535 f 
-0000000038 00000 n 
-0000000087 00000 n 
-0000000144 00000 n 
-0000000280 00000 n 
-0000000350 00000 n 
-0000000425 00000 n 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000123 00000 n 
+0000000261 00000 n 
+0000000331 00000 n 
+0000000406 00000 n 
 trailer
-<< /Size 7 /Root 1 0 R >>
+<<
+/Size 7
+/Root 1 0 R
+>>
 startxref
-4345
+4328
 %%EOF

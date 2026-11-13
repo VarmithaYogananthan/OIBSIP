@@ -184,6 +184,7 @@ button:disabled{opacity:.48!important;cursor:not-allowed!important;transform:non
 .advanced-controls select{min-height:42px}
 .advanced-controls .tool-button{flex:0 0 auto;min-height:42px;white-space:nowrap;padding-inline:13px}
 .precision-control{align-items:center;margin:15px 0 4px}
+.precision-control>div{min-width:170px}
 .precision-control select{width:100%}
 .precision-control p{font-size:.64rem;color:#9db4d3;max-width:145px;margin:20px 0 0}
 .focused-result{border-color:#95d9ffb8;box-shadow:0 0 0 1px #9ce6ff55,0 14px 30px #08112429}

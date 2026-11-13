@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#121c46"><meta name="description" content="EduSpark learner web demo: course catalog, lesson checklists, saved progress and announcements. Browser-local prototype.">
 <title>EduSpark — Learner Workspace (Demo)</title><link rel="stylesheet" href="../app.css">
-<script src="../store.js" defer></script><script src="app.js" defer></script></head>
+<script src="../store.js" defer></script><script src="app.js" defer></script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%232563eb%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2223%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2221%22%3EE%3C%2Ftext%3E%3C%2Fsvg%3E"></head>
 <body><a class="skip" href="#main-content">Skip to workspace</a>
 <div class="shell">
   <aside class="sidebar"><a class="brand" href="welcome.html"><span class="brand-mark">✧</span><span>Edu<b>Spark</b></span></a><div class="sidebar-label">Learner workspace</div>
@@ -14,7 +14,7 @@
       <button type="button" data-view="profile"><span class="nav-icon">♙</span> My profile</button>
     </nav>
     <div class="sidebar-bottom"><div class="demo-mini"><strong>Browser-local demo</strong><div>Not real student accounts. Your courses and progress stay in this browser.</div></div>
-      <a href="welcome.html">← Learner landing page</a><a href="../../index.html">EduSpark main website ↗</a><a href="../admin/welcome.html">Admin landing ↗</a></div>
+      <a href="welcome.html">← Learner landing page</a><a href="../../index.html">EduSpark main website <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" style="display:inline-block;vertical-align:-.1em"><path d="M6 18 18 6M6 6h12v12"/></svg></a><a href="../admin/welcome.html">Admin landing <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" style="display:inline-block;vertical-align:-.1em"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div>
   </aside>
   <div class="workspace">
     <header class="topbar"><div class="breadcrumb">EduSpark / <strong id="page-label">Overview</strong></div><div class="top-actions"><span class="mode-pill">● Learner demo</span><span class="user-chip" id="top-name">Guest learner</span><span class="avatar" id="avatar-label">G</span></div></header>
@@ -33,7 +33,7 @@
         <div class="hero"><div><span class="kicker">KEEP BUILDING</span><h2>Discover. Practise.<br>Grow into what’s next.</h2><p>Browse practical courses, save your learning journey and mark lessons complete.</p></div><button type="button" class="btn" data-go="catalog">Explore learning paths →</button></div>
         <div class="stat-grid"><div class="stat"><div class="stat-top">Enrolled courses <span class="stat-icon">◈</span></div><strong id="stat-enrolled">0</strong><p>Learning journeys started</p></div>
           <div class="stat"><div class="stat-top">Lessons completed <span class="stat-icon">✓</span></div><strong id="stat-lessons">0</strong><p>Across your courses</p></div>
-          <div class="stat"><div class="stat-top">Average progress <span class="stat-icon">↗</span></div><strong id="stat-progress">0%</strong><p>Keep up the momentum</p></div></div>
+          <div class="stat"><div class="stat-top">Average progress <span class="stat-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" style="display:inline-block;vertical-align:-.1em"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div><strong id="stat-progress">0%</strong><p>Keep up the momentum</p></div></div>
         <div class="section-row"><div><h2>Recommended for you</h2><p>Start with a course that sparks your curiosity.</p></div><button class="btn ghost" type="button" data-go="catalog">View all courses →</button></div><div class="course-grid" id="featured-courses"></div>
         <div class="section-row"><div><h2>Campus notices</h2><p>Announcements from the admin demo.</p></div><button class="btn ghost" type="button" data-go="announcements">See all →</button></div><div class="announcement-list" id="dash-announcements"></div>
       </section>

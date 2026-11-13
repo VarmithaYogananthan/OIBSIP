@@ -41,7 +41,7 @@ Clone the existing repository and check out the review branch:
 ```sh
 git clone https://github.com/VarmithaYogananthan/OIBSIP.git
 cd OIBSIP
-git checkout feat/level-1-web-development
+git checkout main
 python3 -m http.server 8000
 ```
 
@@ -72,7 +72,7 @@ Chromium checks used a static local server. The managed environment blocks `file
 
 ## Submission
 
-Review desktop/mobile screenshots and use the existing branch `feat/level-1-web-development` and [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) for internship review. Do not merge automatically.
+The original [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) is merged into `main`. Final audit fixes are reviewed separately on `fix/level1-final-verification`; do not reopen PR #1 or merge follow-up changes automatically. Review the current screenshots and TESTING.md before internship submission.
 
 ## V2 browser verification completed — 12 November 2026
 
@@ -90,7 +90,7 @@ The landing page links to both apps via the hero and portal cards. This extra de
 
 ### Separate app test procedure
 
-From the repository root, start a local HTTP server (`python -m http.server 8000`), then run `python tests/eduspark-apps.py --base-url http://127.0.0.1:8000 --chromium /usr/bin/chromium` in an environment with Python Playwright and Chromium. The new app test has been added to source control; **its Chromium result is not yet recorded**. Existing landing-page screenshots and prior general tests should not be represented as full app validation until rerun.
+From the repository root, start a local HTTP server (`python -m http.server 8000`), then run `python tests/eduspark-apps.py --base-url http://127.0.0.1:8000 --chromium /usr/bin/chromium` in an environment with Python Playwright and Chromium. The suite passed 17 scenario groups during the final audit. The additional submission audit exercises every course entry, all app views and buttons, form validation, same-origin changes without reload, report contents and keyboard lesson focus. All checks run under a local `/OIBSIP/` prefix; see TESTING.md for current evidence.
 
 ## Landing-page routing fix — course and role destinations
 
@@ -106,4 +106,4 @@ The secondary **See learning journey** links still scroll to the existing exampl
 
 The **Open Learner App** / **Open Admin Demo** buttons and portal cards route to `apps/user/welcome.html` and `apps/admin/welcome.html`, respectively. These are fully separate welcome/landing experiences with direct CTA links to their respective dashboards. Demo course browsing and admin data remain browser-local, not authenticated.
 
-The new cross-app test cases in `tests/eduspark-apps.py` check course-page navigation, role welcome pages, learner catalog detail deep links, reload/back, and responsiveness. These routes were browser-tested in 16 successful learner/admin scenario groups in GitHub Actions run 43176029060 (12 November 2026). The original HTML/CSS landing page remains without JavaScript.
+The new cross-app test cases in `tests/eduspark-apps.py` check course-page navigation, role welcome pages, learner catalog detail deep links, reload/back, and responsiveness. These routes passed the current 17-group learner/admin suite; the earlier 16-group GitHub Actions result is historical, not the final audit result. The original HTML/CSS landing page remains without JavaScript.

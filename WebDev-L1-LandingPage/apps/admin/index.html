@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#121c46"><meta name="description" content="EduSpark admin demo with course management, learner overview, announcements and reports. Browser-local concept, not a secure production admin.">
 <title>EduSpark — Admin Workspace (Demo)</title><link rel="stylesheet" href="../app.css">
-<script src="../store.js" defer></script><script src="app.js" defer></script></head>
+<script src="../store.js" defer></script><script src="app.js" defer></script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%232563eb%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2223%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2221%22%3EE%3C%2Ftext%3E%3C%2Fsvg%3E"></head>
 <body><a class="skip" href="#main-content">Skip to admin workspace</a>
 <div class="shell">
   <aside class="sidebar">
@@ -16,7 +16,7 @@
       <button type="button" data-view="settings"><span class="nav-icon">⚙</span> Demo settings</button>
     </nav>
     <div class="sidebar-bottom"><div class="demo-mini"><strong>Public Admin Prototype</strong><div>No password or permission enforcement. Never enter real learner data. Changes apply only in this browser.</div></div>
-      <a href="welcome.html">← Admin landing page</a><a href="../../index.html">EduSpark main website ↗</a><a href="../user/welcome.html">Learner landing ↗</a>
+      <a href="welcome.html">← Admin landing page</a><a href="../../index.html">EduSpark main website <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" style="display:inline-block;vertical-align:-.1em"><path d="M6 18 18 6M6 6h12v12"/></svg></a><a href="../user/welcome.html">Learner landing <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" style="display:inline-block;vertical-align:-.1em"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
     </div>
   </aside>
   <div class="workspace">
@@ -62,13 +62,13 @@
       </section>
       <section class="view" id="view-reports" aria-labelledby="reports-title">
         <div class="page-heading"><div><span class="kicker">LOCAL INSIGHTS</span><h1 id="reports-title">Reports & insights</h1><p>Enrollment and completion metrics calculated from sample data in this browser.</p></div><button type="button" class="btn" id="download-report">Download CSV report ↓</button></div>
-        <div class="stat-grid"><div class="stat"><div class="stat-top">Active courses <span class="stat-icon">◉</span></div><strong id="report-active">0</strong><p>Visible to learners</p></div><div class="stat"><div class="stat-top">Completed lessons <span class="stat-icon">✓</span></div><strong id="report-lessons">0</strong><p>Across local enrollments</p></div><div class="stat"><div class="stat-top">Average completion <span class="stat-icon">↗</span></div><strong id="report-average">0%</strong><p>Across enrolled courses</p></div></div>
+        <div class="stat-grid"><div class="stat"><div class="stat-top">Active courses <span class="stat-icon">◉</span></div><strong id="report-active">0</strong><p>Visible to learners</p></div><div class="stat"><div class="stat-top">Completed lessons <span class="stat-icon">✓</span></div><strong id="report-lessons">0</strong><p>Across local enrollments</p></div><div class="stat"><div class="stat-top">Average completion <span class="stat-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" style="display:inline-block;vertical-align:-.1em"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div><strong id="report-average">0%</strong><p>Across enrolled courses</p></div></div>
         <div class="section-row"><div><h2>Course performance</h2><p>Enrollment counts and average progress.</p></div></div><div id="report-table" class="data-table-wrap"></div><span class="status" id="report-status" role="status"></span>
       </section>
       <section class="view" id="view-settings" aria-labelledby="settings-title"><div class="page-heading"><div><span class="kicker">DEMO CONFIGURATION</span><h1 id="settings-title">Settings & limitations</h1><p>Understand this prototype and safely reset all your local demo changes.</p></div></div>
         <div class="panel" style="max-width:780px"><h2>Local demo storage</h2><p style="margin:12px 0 20px">This app has no server, real login, role-based access, email delivery, payments, shared course database or production security. Anyone with this link can open the Admin Demo; never enter confidential information.</p>
           <h3>Reset sample data</h3><p>This restores the starting courses and welcome announcement, removes local demo learners, enrollments and added courses from this browser.</p>
-          <div class="form-actions"><button type="button" class="btn danger" id="reset-demo">Reset entire demo data</button><a href="../user/welcome.html" class="btn secondary">Open learner landing ↗</a></div><span class="status" id="settings-status" role="status"></span>
+          <div class="form-actions"><button type="button" class="btn danger" id="reset-demo">Reset entire demo data</button><a href="../user/welcome.html" class="btn secondary">Open learner landing <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" style="display:inline-block;vertical-align:-.1em"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div><span class="status" id="settings-status" role="status"></span>
         </div>
       </section>
       <span class="status" id="global-status" role="status" aria-live="polite"></span>

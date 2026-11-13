@@ -52,7 +52,7 @@ A Playwright cross-app test script is included:
 python tests/eduspark-apps.py --base-url http://127.0.0.1:8000 --chromium /usr/bin/chromium
 ```
 
-The test covers signup demo, course search and filters, join/lesson progress, admin learner metrics, course creation/edit/visibility/deletion, announcement sync, reports and CSV, responsive widths and reset. **Test script added; it must be executed in a local Chromium/Playwright environment to confirm runtime behavior.** The earlier general `TESTING.md` reports were recorded before adding these two web apps.
+The test covers signup demo, course search and filters, join/lesson progress, admin learner metrics, course creation/edit/visibility/deletion, announcement sync, reports and CSV, responsive widths and reset. The final audit ran this suite successfully against the `/OIBSIP/` repository prefix. `tests/submission-audit.py` adds every-view responsive checks, keyboard lesson focus, form validation, profile switching, cross-tab changes without reload, learner removal, announcement deletion, CSV-content checks and reset confirmation/cancellation. See TESTING.md for the actual results and remaining browser limitations.
 
 All landing-page course information remains illustrative; this is not a real educational service.
 
@@ -67,4 +67,8 @@ The existing dashboard entry points `apps/user/index.html` and `apps/admin/index
 
 The public landing course cards have **three dedicated static HTML detail pages** under `courses/` (Web Development, UI/UX, Python), each with summary, outcomes, four example modules, capstone and a path to the learner app's matching course screen. Inside the Learner dashboard, **every catalog course**, including admin-added courses, has a clickable cover/title/**View course details** action, a separate course-detail view with module listing, and a deep URL `index.html#course/<course-id>` that survives reload and can be linked directly. Lesson completion and enrollment remain browser-local.
 
-**Verification:** HTML link targets, element IDs, script syntax, isolated navigation/data behavior and route handlers were checked while editing. GitHub Actions run 43176029060 completed **16 passing Chromium cross-app groups**, covering role welcome pages, course details, routing, persistence and 7 viewport widths. Latest workflow-generated screenshots are saved as an Actions artifact; the static repository screenshots may predate these additions.
+**Verification:** The current 17-group cross-app suite passed under `/OIBSIP/`, and the final submission audit checks all 11 HTML entries, every app view at seven widths, local asset targets, resume actions and cross-tab workflows. The six repository screenshots are refreshed to include the current features. Latest CI results are available in the review PR and TESTING.md.
+
+## Review state
+
+PR #1 is merged; the final audit is a separate `fix/level1-final-verification` review. These optional apps are not required secure production systems. Pages is not verified live; use the root README's activation instructions if a public demo is needed.
