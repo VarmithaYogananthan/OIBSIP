@@ -1,6 +1,6 @@
 # Oasis Infobyte — Web Development & Designing · Level 1
 
-**Portfolio of three internship tasks (code deliverables).** The checklist below was cross-checked against the **Web Development & Designing Level 1 Task Cards** in the current Oasis Infobyte SIP task list supplied through the user's 6 November 2026 orientation email. The extra Learner/Admin demos, separate course pages and resume download go beyond the mandatory Level 1 card scope. [Official task-card source](https://docs.google.com/document/d/1p4uB1o7RU3YqfUDFXRbL-YSMS-x6vM90LMo_IV7jgq0/edit). Original pull request [#1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) was merged into `main` on 12 November 2026. The follow-up audit uses `fix/level1-final-verification`. The official task list and orientation email were re-read during this audit. This document distinguishes finished code from actions that require a final human review, publishing or submission.
+**Portfolio of three internship tasks (code deliverables).** The checklist below was cross-checked against the **Web Development & Designing Level 1 Task Cards** in the current Oasis Infobyte SIP task list supplied through the user's 6 November 2026 orientation email. The extra Learner/Admin demos, separate course pages and resume download go beyond the mandatory Level 1 card scope. [Official task-card source](https://docs.google.com/document/d/1p4uB1o7RU3YqfUDFXRbL-YSMS-x6vM90LMo_IV7jgq0/edit). Original pull request [#1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) was merged into `main` on 12 November 2026. The final verification work from `fix/level1-final-verification` was merged through [PR #2](https://github.com/VarmithaYogananthan/OIBSIP/pull/2). The official task list and orientation email were re-read during this audit. This document distinguishes finished code from actions that require a final human review, publishing or submission.
 
 ## Requirement-to-implementation checklist
 
@@ -81,9 +81,9 @@ The script collection checks responsive widths, real links/downloads, keyboard b
 ## Actions still requiring the user
 
 - [ ] Review all three final rendered sites and the public resume content.
-- [ ] Confirm all current CI test results are green; address any remaining failed checks.
+- [x] Final-verification [GitHub Actions run 43194354478](https://github.com/VarmithaYogananthan/OIBSIP/actions/runs/43194354478) passed before merge; check any new runs after later changes.
 - [x] PR #1 is merged into `main`.
-- [ ] Review the new final-verification PR and merge only when satisfied; do not reopen PR #1.
+- [x] Final-verification [PR #2](https://github.com/VarmithaYogananthan/OIBSIP/pull/2) merged into `main`; PR #1 remains merged.
 - [ ] Enable GitHub Pages from `main` / root if a live demo is required. Pages API and expected public URL returned 404 during the audit; follow the exact activation steps in README.md and verify deployment before sharing a URL.
 - [ ] Record demo walkthrough videos and follow the **specific instructions in your offer letter / task sheet** (including any LinkedIn/peer review requirements).
 - [ ] Use the official task submission form and links supplied to you by Oasis Infobyte. Submission has **not** been performed by this repository.
