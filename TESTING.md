@@ -1,6 +1,6 @@
 # OIBSIP — final audit and submission readiness
 
-**Audit date: 12 November 2026.** This supersedes the earlier pre-resume/pre-dashboard notices. The clean checkout was synchronized with `origin/main` at `9a8f39a`. PR #1 was confirmed **merged**; this follow-up uses `fix/level1-final-verification` and a new review PR, without merging automatically.
+**Audit date: 12 November 2026.** This supersedes the earlier pre-resume/pre-dashboard notices. The clean checkout was synchronized with `origin/main` at `9a8f39a`. PR #1 was confirmed **merged**; the follow-up `fix/level1-final-verification` changes were subsequently squash-merged through [PR #2](https://github.com/VarmithaYogananthan/OIBSIP/pull/2) into `main` (merge commit `1220fd1`).
 
 ## Official requirement check
 
@@ -103,9 +103,9 @@ They include current role/course entry links, the portfolio resume section and a
 
 ## CI and publication
 
-- Verified `main` run [43178574461](https://github.com/VarmithaYogananthan/OIBSIP/actions/runs/43178574461) is successful for base `9a8f39a`. This is historical base evidence; follow-up CI is reported in the new PR's Checks tab and must be checked before merging it.
+- Verified `main` run [43178574461](https://github.com/VarmithaYogananthan/OIBSIP/actions/runs/43178574461) is successful for base `9a8f39a`. This is historical base evidence; final-verification [GitHub Actions run 43194354478](https://github.com/VarmithaYogananthan/OIBSIP/actions/runs/43194354478) passed and PR #2 was merged.
 - On 12 November 2026, the Pages API and `https://varmithayogananthan.github.io/OIBSIP/` both returned **404**. A public deployment is **not verified live**. This audit did not change hosting settings.
-- The local subpath audit proves path readiness, not actual public hosting. Follow README.md: review/merge the final fix PR, then **Settings → Pages → Source: Deploy from a branch → main → / (root) → Save**, wait for the Pages deployment and verify the hub and all linked pages before sharing that URL.
+- The local subpath audit proves path readiness, not actual public hosting. PR #2 is already merged. Follow README.md: **Settings → Pages → Source: Deploy from a branch → main → / (root) → Save**, then wait for deployment and verify the hub and all linked pages before sharing that URL.
 
 ## Remaining limitations and submission actions
 
