@@ -40,7 +40,7 @@ script.js
 
 ## Run locally
 
-Clone the existing repository and check out the review branch:
+Clone the repository and use the `main` branch:
 
 ```sh
 git clone https://github.com/VarmithaYogananthan/OIBSIP.git
@@ -76,7 +76,7 @@ Chromium checks used a static local server. The managed environment blocks `file
 
 ## Submission
 
-The original [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) is merged into `main`. Final audit fixes are reviewed separately on `fix/level1-final-verification`; do not reopen PR #1 or merge follow-up changes automatically. Review the current screenshots and TESTING.md before internship submission.
+Both [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) and final-verification [PR #2](https://github.com/VarmithaYogananthan/OIBSIP/pull/2) are merged into `main`. Review the current screenshots, personal details and TESTING.md before internship submission.
 
 ## Formulas and accepted input
 
