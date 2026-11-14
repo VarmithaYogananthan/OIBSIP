@@ -14,7 +14,7 @@ The root [`index.html`](index.html) is the project hub. GitHub's file viewer dis
 
 [LEVEL1_SUBMISSION_CHECKLIST.md](LEVEL1_SUBMISSION_CHECKLIST.md) maps the implementation to the [official SIP task list](https://docs.google.com/document/d/1p4uB1o7RU3YqfUDFXRbL-YSMS-x6vM90LMo_IV7jgq0/edit), reached from the 6 November 2026 Oasis Infobyte orientation email and rechecked on 12 November 2026. Level 1 requires **all three** core tasks. The extra dashboards and downloadable resume exceed the mandatory task-card scope.
 
-The original [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) **was merged** into `main` on 12 November 2026. Final audit fixes are reviewed separately on `fix/level1-final-verification`; no PR is merged automatically. The verified base on `main` is `9a8f39a`.
+Both [PR #1](https://github.com/VarmithaYogananthan/OIBSIP/pull/1) and final verification [PR #2](https://github.com/VarmithaYogananthan/OIBSIP/pull/2) are **merged** into `main`. The PR #2 merge commit is [`1220fd1`](https://github.com/VarmithaYogananthan/OIBSIP/commit/1220fd1e71f91b663bd6336392ade106d6c0cb2c).
 
 ## Run locally
 
@@ -53,15 +53,15 @@ python3 tests/feature-check.py --base-url http://127.0.0.1:8000 --chromium /usr/
 python3 tests/eduspark-apps.py --base-url http://127.0.0.1:8000 --chromium /usr/bin/chromium
 ```
 
-The additional `tests/submission-audit.py` checks subpath assets, resume actions and extended cross-app workflows. The [GitHub Actions workflow](.github/workflows/verify-oibsip-level1.yml) serves the checkout under `/OIBSIP/` and runs all four browser suites plus the Node tests. Check the current PR's **Checks** tab before merging.
+The additional `tests/submission-audit.py` checks subpath assets, resume actions and extended cross-app workflows. The [GitHub Actions workflow](.github/workflows/verify-oibsip-level1.yml) serves the checkout under `/OIBSIP/` and runs all four browser suites plus the Node tests. The final-verification PR #2 GitHub Actions run [43194354478](https://github.com/VarmithaYogananthan/OIBSIP/actions/runs/43194354478) passed before it was merged.
 
 ## GitHub Pages — activation still required
 
 On 12 November 2026, the Pages API and expected public URL both returned **404**. A published site was not verified, and this audit did not enable hosting.
 
-To activate after reviewing the final verification PR:
+To activate GitHub Pages after the final PR merge:
 
-1. Merge the reviewed fixes into `main` when satisfied.
+1. PR #2 has already been merged into `main`; no further PR merge is required.
 2. In this repository, open **Settings → Pages → Build and deployment**.
 3. Set **Source: Deploy from a branch**, **Branch: main**, **Folder: / (root)**, then **Save**.
 4. Wait for the Pages build/deployment to succeed in **Actions**.
